@@ -4,6 +4,7 @@ require_once "config.php";
  
 // Define variables and initialize with empty values
 $username = $password = $message = "";
+$register="";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -33,6 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Close statement
             mysqli_stmt_close($stmt);
             $message = "Congratulations! You Have Successfully Register!";
+            $register=true;
 
         } else {
                  $message = "Problems with inserting to Database";            
@@ -45,12 +47,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <html>
 <head>
-    <title>Registration</title>
+    <title>Login</title>
 </head>
 <body>
 
-<?php echo $message; ?>
- 
+<?php
+    if($register){
+        header("Location: accountcreated.html");
+    }
+?>
+
+
 </body>
 </html>
 

@@ -8,6 +8,7 @@
   .main-content {
     width: 98%;
     margin-left: 10px;
+    font-family:'Courier New', Courier, monospace
   }
 
   .message-header {
@@ -94,7 +95,7 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary" href="login.php">
+            <a class="button is-primary" href="login.html">
               Log in
             </a>
           </div>
@@ -109,69 +110,17 @@
 
     <div class="container" style="width:50%">
       <div class="notification is-primary">
-        Login to your account:
+        <b>Sorry, not a valid Username! Please click Login to try again!</b>
+        
       </div>
     </div>
 
-    <form class="box" method="post" action="login.php">
-      <div class="field">
-        <label class="label">Username</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Enter your username!" name=UserName>
-        </div>
-      </div>
     
-      <div class="field">
-        <label class="label">Password</label>
-        <div class="control">
-          <input class="input" type="password" placeholder="********" name="MyPass">
-        </div>
-      </div>
-    
-      <button class="button is-primary">Log in!</button>
-    </form>
-
-   
-
-      <hr>
-
-      <div class="container" style="width:50%">
-        <div class="notification is-warning" >
-         Or create an account:
-        </div>
-      </div>
-
-      <form class="box" method="post" action="register.php">
-        <div class="field">
-          <label class="label">Create Username</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Create a username!" name=UserName required="true">
-          </div>
-        </div>
-      
-        <div class="field">
-          <label class="label">Create A Strong Password</label>
-          <div class="control">
-            <input class="input" type="password" placeholder="********" name="MyPass" required="true">
-          </div>
-        </div>
-      
-        <button class="button is-primary">Create Account</button>
-      </form>
   
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-  <script>
-    $(".delete").click(function () {
 
-      $(this).closest(".message").slideUp();
-      
-
-
-
-    })
-  </script>
 </body>
 
 </html>

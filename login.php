@@ -5,6 +5,9 @@ require_once "config.php";
  
 // Define variables and initialize with empty values
 $username = $password = $message = "";
+$login="";
+$wrongpass="";
+$wronguser="";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -37,15 +40,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         if($password == $h_password){
                             // Password is correct Display a message that it's OK
                             $message = "Welcome Back!";
+                            $login = true;
 
                         } else{
                             // Display an error message if password is not valid
                             $message = "The password you entered was not valid.";
+                            $wrongpass=true;
                         }
                     }
                 } else{
                     // Display an error message if username doesn't exist
                     $message = "No account found with that username.";
+                    $wronguser=true;
                 }           
             } 
 
@@ -58,12 +64,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
  
-<html>
+ <html>
 <head>
     <title>Login</title>
 </head>
 <body>
-<?php echo $message; ?>
+
+<?php
+    if($login){
+        header("Location: home.php");
+    }
+    if($wrongpass){
+        header("Location: wrongpass.html");
+    }
+    if($wronguser){
+        header("Location: wronguser.html");
+    }
+?>
+
+
 </body>
 </html>
-
