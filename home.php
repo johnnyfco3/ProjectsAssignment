@@ -70,7 +70,7 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary" href="login.php">
+          <a class="button is-primary" href="login.html">
             Log in
           </a>
         </div>
