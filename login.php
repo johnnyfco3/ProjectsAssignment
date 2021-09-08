@@ -72,11 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <?php
     if($login){
-<<<<<<< HEAD
         header("Location: viewfiles.php");
-=======
-        header("Location: home.php");
->>>>>>> 784c8adc0e4a94f5bdd21f54112f8bdf0f98c5ae
     }
     if($wrongpass){
         header("Location: wrongpass.html");
