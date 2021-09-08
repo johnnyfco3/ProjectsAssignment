@@ -2,7 +2,7 @@
 /* Database credentials. */
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'p_f21_11'); //changed the config file
-define('DB_PASSWORD', 'vqesp5');
+define('DB_PASSWORD', 'vqesp5'); //HEY
 define('DB_NAME', 'p_f21_11_db');
  
 /* Attempt to connect to MySQL database */
