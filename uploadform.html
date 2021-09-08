@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<style>
+    .navbar-brand{
+        font-size: 25px;
+        font-family: fantasy;
+    }
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <title>Upload File</title>
+</head>
+<body>
+<!--Navbar-->
+<nav class="navbar is-link" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+    <a class="navbar-item" href="home.php">Knowledge Base</a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="home.php">
+        Home
+      </a>
+
+      <a class="navbar-item" href="#">
+        Data Structures
+      </a>
+
+      <a class="navbar-item" href="#">
+        IT Information
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="about.php">
+            About
+          </a>
+          <a class="navbar-item" href="#">
+            Contact
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!--Main Content-->
+<form action="upload.php" method="post" enctype="multipart/form-data">
+<div class="columns">
+  <div class="column is-one-third">
+<div class="field">
+  <label class="label">Title</label>
+  <div class="control">
+    <input class="input is-link" type="text" name="title">
+  </div>
+</div>
+</div>
+</div>
+
+<div class="field">
+  <label class="label">Topic</label>
+  <div class="control">
+    <div class="select is-link">
+      <select name="topic">
+        <option>Data Structures</option>
+        <option>IT</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="field">
+  Upload a File to Scan
+  <input type="file" name="userfile">
+</div>
+
+<div class="field">
+  <div class="control">
+    <button class="button is-link" type="submit" name="submit">Submit</button>
+  </div>
+</div>
+</form>
+</body>
+</html>
