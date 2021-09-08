@@ -72,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <?php
     if($login){
-        header("Location: home.php");
+        header("Location: viewfiles.php");
     }
     if($wrongpass){
         header("Location: wrongpass.html");

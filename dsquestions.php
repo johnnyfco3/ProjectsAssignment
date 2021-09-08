@@ -4,9 +4,16 @@
         font-size: 25px;
         font-family: fantasy;
     }
-    .main-content{
-        width: 98%;
-        margin-left: 10px;
+    .box{
+        text-align: center;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 40px;
+    }
+    .media-content p{
+        text-align: center;
+    }
+    .buttons{
+        margin-left: 250px;
     }
 </style>
 <html lang="en">
@@ -15,7 +22,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <title>About</title>
+    <title>Knowledge Base</title>
 </head>
 <body>
 <!--Navbar-->
@@ -50,7 +57,7 @@
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="#">
+          <a class="navbar-item" href="about.php">
             About
           </a>
           <a class="navbar-item" href="#">
@@ -71,28 +78,5 @@
     </div>
   </div>
 </nav>
-
-<!--Main Content-->
-<div class="main-content">
-<div class="title">
-<h1 class="title is-1">About</h1>
-</div>
-<div class="content is-normal">
-    <h1>Mission</h1>
-    <p>Welcome to our Knowledge Base website. Our mission is to educate students about 
-        a few aspects of computer science. We teach our audience the fundamentals of Data Structures
-        and provide them useful information about the field of Information Technology. In order to
-        teach Data Structures, we include various practice questions in which they can complete.  
-    </p>
-    <h2>Developers</h2>
-    <p>The minds behind Knowledge Base are full time students at the State University of New York at New
-        Paltz. These students major in Computer Science and are aiming to share their skills with the world.
-    </p>
-    <p>
-        Developers Names: 
-
-    </p>
-  </div>
-  </div>
 </body>
 </html>
