@@ -1,0 +1,41 @@
+{
+  "startPage": 28,
+  "lastPage": 426,
+  "columns": {
+    "Therapeutic_Uses": [
+      "Therapeutic use|TherapeUJic uses|TherapeuJic uses|Therapeulic uses|TherapeUlic uses|Therapeutic usu|TherapiuJic uses|Therapelllic uses|ThLrapeUlic uses|Therapeu/ic uses|TherapeUtic uses|Therapewic uses|TheropeUJic uses|ThuapeuJic uses|Tlerapeutic uses|TheiapeUlic uses",
+      "split"
+    ],
+    "Chemical_Composition": [
+      "Chemical composition|Chemical composilion|Chemical COmposilion|Che\"ucal compositwn|Chemical Composilion|Chemical compositwn|Chemical C07T!{JOSilion|Chemica/ composition|Chemical compon/wn|ChLmjcal composition|Chemical composirion|Chemical composirion|Chem;cal composition|Chemical compositinn|Chem;cai composition|ChenUcal composition|Che\"ucal composition|Chemical ComposlIwn|ChenUcal compositwn|Chemjcal COmposilion|Chemic\\(jl composition|Chemical Composililln|Che\"ucai composition|Cherru'cal COmposili\\(m",
+      "split"
+    ],
+    "Parts_Used": [
+      "Parts used|Paris used|ParIS used|ParIs used|Pans used|Ports used|Parts 'used|Parrs used|PariS used|Pqrts used|Pa;ts used|P\\(JTts used|PartS used",
+      "split"
+    ],
+    "Distribution": [
+      "Distribution|DislribUJion|DistribuJion|DistribUJion|Distribulion|Dislribwion|DistribuJwn|DistribUlion|DistribUlwn|DistribUlion|DiscribUlion|Distributwn|DislribUlion|Distributwn|DiS/TibuJwn|Disrribution|Disrributwn|DisrribuJion|Distribuiion|DislribuJion|Distriblllion|DistributilJn|DisrribUlion|Distribu/wn|Distributinn|DistribUliOn|DisrribUlion|Dislribulion|Discribwion|DisrribUJion|Dis/ribu/ion|Dislribution|DismbUJion|DislribUJilln|DistriouJion",
+      "split"
+    ],
+    "Flowering_Period": [
+      "Flowering period|Flowering perwd|Flqwering period|bearing period|Flowering perilld",
+      "split"
+    ],
+    "Description": [
+      "Description|Descriprion|Dtscription|Descriplion|Descrip/ion|DeSCription",
+      "split"
+    ],
+    "English_Names": ["English name", "split"],
+    "Local_Names": [
+      "Local name|Loc31 names|Loca1 names|Local name.s|Local ",
+      "split"
+    ],
+    "Plant_Name": ["(?<=\\d)(\\D+)", "search"],
+    "Plant_Number": ["(\\d+)", "search"]
+  },
+  "pictures": {
+    "startPage": 27,
+    "lastPage": 427
+  }
+}
