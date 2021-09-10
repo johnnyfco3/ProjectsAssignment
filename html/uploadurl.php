@@ -1,24 +1,8 @@
-<?php
-// Include config file
-require_once "config.php";
-?>
 <!DOCTYPE html>
 <style>
     .navbar-brand{
         font-size: 25px;
         font-family: fantasy;
-    }
-    .box{
-        text-align: center;
-        font-size: 40px;
-    }
-    .file{
-        margin-top: 15px;
-    }
-    .file .title{
-        font-size: 18px;
-        margin-right: 10px;
-        margin-top: 15px;
     }
 </style>
 <html lang="en">
@@ -27,12 +11,12 @@ require_once "config.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <title>View Files</title>
+    <title>Upload File</title>
 </head>
 <body>
 <!--Navbar-->
 <nav class="navbar is-link" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
+  <div class="navbar-brand">
     <a class="navbar-item" href="home.php">Knowledge Base</a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -73,33 +57,61 @@ require_once "config.php";
     </div>
 </nav>
 <!--Main Content-->
-<div class="box">
-    Available Files 
+<form action="" method="post" enctype="multipart/form-data">
+<div class="columns">
+  <div class="column is-one-third">
+<div class="field">
+  <label class="label">Title</label>
+  <div class="control">
+    <input class="input is-link" type="text" name="title" placeholder="Choose an appropriate title">
   </div>
-  <form method="post" action="viewfiles.php">
-<table class="table is-striped is-hoverable is-fullwidth">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Type</th>
-        <th>View Content</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
+</div>
+</div>
+</div>
 
-        $sql = "SELECT * FROM files";
-        $result = mysqli_query($link, $sql);
-        while ($row = mysqli_fetch_assoc($result)) {
-          echo "<tr><td>" . $row['title'] . "</td><td>"
-              . $row['type'] . "</td><td><a class='button is-primary' role='button' href='openfile.php?ID="
-              . $row['TID'] . "'>Open</a>";
-        }
+<div class="field">
+  <label class="label">Type</label>
+  <div class="column is-one-fifth">
+    <input class="input" type="text" value="URL" name="type" readonly>
+  </div>
+</div>
 
-      ?>
-    </tbody>
-</table> 
-  <a class='button is-warning' role='button' href="uploadpdf.php">Upload New PDF</a>
-  <a class='button is-warning' role='button' href="uploadurl.php">Upload New URL</a>
+<div class="columns">
+  <div class="column is-half">
+<div class="field">
+  <label class="label">URL</label>
+  <div class="control">
+    <input class="input is-link" type="text" name="url" placeholder="Enter URL properly">
+  </div>
+</div>
+</div>
+</div>
+
+<div class="field">
+  <div class="control">
+    <button class="button is-link" type="submit" name="submit">Submit</button>
+  </div>
+</div>
+</form>
+<?php
+
+// Include config file
+require_once "config.php";
+
+if(isset($_POST['submit'])){
+    $Title = $_POST['title'];
+    $Type = $_POST['type'];
+    $fname = $_POST['url'];
+    $query = "INSERT into files (title, type, fname) values ('$Title', '$Type', '$fname')";
+    $result = mysqli_query($link, $query);
+    if($result)
+    {
+        header("Location: viewfiles.php?uploadsuccess");
+    }
+    else{
+        echo ' Please Check Your Query ';
+    }
+}
+?>
 </body>
 </html>

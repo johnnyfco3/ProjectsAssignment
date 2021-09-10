@@ -12,9 +12,6 @@
     .media-content p{
         text-align: center;
     }
-    .buttons{
-        margin-left: 250px;
-    }
 </style>
 <html lang="en">
 <head>
@@ -22,7 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <title>Home</title>
+    <title>Knowledge Base</title>
 </head>
 <body>
 <!--Navbar-->
@@ -43,12 +40,12 @@
         Home
       </a>
 
-      <a class="navbar-item" href="#">
-        Data Structures
+      <a class="navbar-item" href="info.php">
+        Medicinal Plants
       </a>
 
-      <a class="navbar-item" href="#">
-        IT Information
+      <a class="navbar-item" href="quiz.php">
+        Pop Quiz
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
@@ -83,44 +80,29 @@
   Welcome! 
   <div>Let's Start Learning</div>
 </div>
-<div class="columns is-multiline is-mobile">
-  <div class="column is-half">
+<div class="columns">
+  <div class="column">
     <div class="card">
         <div class="card-content">
             <div class="media">
                 <div class="media-content">
-                    <p class="title is-24">Data Structures</p>
+                    <p class="title is-24">Medicinal Plants</p>
                 </div>
             </div>
             <div class="content">
-            A data organization, management, and storage format that 
-            enables efficient access and modification. A collection of data values, the relationships
-            among them, and the functions or operations that can be applied to the data. Here we will see
-            data structure related questions. To get started, press below!
+              Medicinal plants, also called medicinal herbs, have been discovered and used in
+              traditional medicine practices since prehistoric times. Plants make hundreds
+              of chemical compounds for functions including defence against insects, fungi, diseases,
+              and herbivorous mammals. This website includes a numerous amount of sources that inform you about 
+              different types of medicinal plants and their importance. To learn about specific plants, press the 
+              Start button below! To quiz yourself on the information, press the Quiz button below!
+              
             </div>
-            <div class="buttons">
-                <button class="button is-info">Start</button>
-            </div>
+                <a class='button is-info' role='button' href="info.php">Start</a>
+                <a class='button is-info' role='button' href="quiz.php">Quiz</a>
         </div>
     </div>
   </div>
-<div class="column is-half">
-<div class="card">
-  <div class="card-content">
-    <div class="media">
-      <div class="media-content">
-        <p class="title is-24">Information Technology</p>
-      </div>
-    </div>
-    <div class="content">
-        The study or use of systems for storing, retrieving, and sending information. Here you can learn 
-        about what it takes to be successful in IT jobs and find jobs in this field. To get started, press 
-        below!
-    </div>
-    <div class="buttons">
-        <button class="button is-info">Start</button>
-  </div>
-</div>
 </div>
 </body>
 </html>

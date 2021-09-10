@@ -16,7 +16,7 @@
 <body>
 <!--Navbar-->
 <nav class="navbar is-link" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
+  <div class="navbar-brand">
     <a class="navbar-item" href="home.php">Knowledge Base</a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -32,12 +32,12 @@
         Home
       </a>
 
-      <a class="navbar-item" href="#">
-        Data Structures
+      <a class="navbar-item" href="info.php">
+        Medicinal Plants
       </a>
 
-      <a class="navbar-item" href="#">
-        IT Information
+      <a class="navbar-item" href="quiz.php">
+        Pop Quiz
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
@@ -55,36 +55,30 @@
         </div>
       </div>
     </div>
-  </div>
 </nav>
 <!--Main Content-->
-<form action="upload.php" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data">
 <div class="columns">
   <div class="column is-one-third">
 <div class="field">
   <label class="label">Title</label>
   <div class="control">
-    <input class="input is-link" type="text" name="title">
+    <input class="input is-link" type="text" name="title" placeholder="Choose an appropriate title">
   </div>
 </div>
 </div>
 </div>
 
 <div class="field">
-  <label class="label">Topic</label>
-  <div class="control">
-    <div class="select is-link">
-      <select name="topic">
-        <option>Data Structures</option>
-        <option>IT</option>
-      </select>
-    </div>
+  <label class="label">Type</label>
+  <div class="column is-one-fifth">
+    <input class="input" type="text" value="PDF" name="type" readonly>
   </div>
 </div>
 
 <div class="field">
-  Upload a File to Scan
-  <input type="file" name="userfile">
+  Upload File to Scan
+  <input type="file" name="userfile" id="userfile" required>
 </div>
 
 <div class="field">
@@ -93,5 +87,27 @@
   </div>
 </div>
 </form>
+<?php
+
+// Include config file
+require_once "config.php";
+
+if(isset($_POST['submit'])){
+    $Title = $_POST['title'];
+    $Type = $_POST['type'];
+    $uploads_dir = '/html/docs';
+    $fname = $_FILES['userfile']['name'];
+    move_uploaded_file($_FILES['userfile']['tmp_name'], $_FILES['userfile']['name']);
+    $query = "INSERT into files (title, type, fname) values ('$Title', '$Type', '$fname')";
+    $result = mysqli_query($link, $query);
+    if($result)
+    {
+        header("Location: viewfiles.php?uploadsuccess");
+    }
+    else{
+        echo ' Please Check Your Query ';
+    }
+}
+?>
 </body>
 </html>
