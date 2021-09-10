@@ -37,11 +37,13 @@ args = parser.parse_args()
 
 #create db cursor
 cnx = mysql.connector.connect(
-    host = os.getenv("DB_HOST"),
-    user = os.getenv("DB_USER"),
-    password = os.getenv("DB_PASSWORD"),
-    database = os.getenv("DB_NAME")
+    host = "localhost",
+    user = "root",
+    password="",
+    database="DataTest"
+    
 )
+
 cur = cnx.cursor()
 
 # load in json file to get textbook format
