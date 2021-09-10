@@ -37,11 +37,11 @@
       </a>
 
       <a class="navbar-item" href="#">
-        Data Structures
+        Medicinal Plants
       </a>
 
       <a class="navbar-item" href="#">
-        IT Information
+        Pop Quiz
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
