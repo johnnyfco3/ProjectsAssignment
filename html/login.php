@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
 
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM p_users WHERE username = ?";
+        $sql = "SELECT id, username, password FROM KnowledgeBaseUsers WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters

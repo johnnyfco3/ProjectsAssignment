@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $password = trim($_POST["MyPass"]);   
         
     // Prepare an insert statement
-    $sql = "INSERT INTO p_users (username, password) VALUES (?, ?)";
+    $sql = "INSERT INTO KnowledgeBaseUsers (username, password) VALUES (?, ?)";
          
 
         
