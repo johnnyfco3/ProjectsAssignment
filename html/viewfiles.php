@@ -31,18 +31,19 @@ require_once "config.php";
 </head>
 <body>
 <!--Navbar-->
+<div class="container">
 <nav class="navbar is-link" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
     <a class="navbar-item" href="home.php">Knowledge Base</a>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active' : navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div class="navbar-menu" :class="{ 'is-active' : navBarIsActive }">
     <div class="navbar-start">
       <a class="navbar-item" href="home.php">
         Home
@@ -72,6 +73,7 @@ require_once "config.php";
       </div>
     </div>
 </nav>
+</div>
 <!--Main Content-->
 <div class="box">
     Available Files 
@@ -101,5 +103,18 @@ require_once "config.php";
 </table> 
   <a class='button is-warning' role='button' href="uploadpdf.php">Upload New PDF</a>
   <a class='button is-warning' role='button' href="uploadurl.php">Upload New URL</a>
+  <script src="https://unpkg.com/vue@next"></script>
+<script>
+        
+        const VM = {
+          data() {
+            return {
+              navBarIsActive: false,  
+            }
+          }
+        }
+
+        Vue.createApp(VM).mount('.container')
+      </script>
 </body>
 </html>
