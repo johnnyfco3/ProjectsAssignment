@@ -97,7 +97,7 @@ require_once "config.php";
 if(isset($_POST['submit'])){
     $Title = $_POST['title'];
     $Type = $_POST['type'];
-    $uploads_dir = '/html/doc';
+    $uploads_dir = '/doc';
     $fname = $_FILES['userfile']['name'];
     move_uploaded_file($_FILES['userfile']['tmp_name'], $_FILES['userfile']['name']);
     $query = "INSERT into files (title, type, fname) values ('$Title', '$Type', '$fname')";
