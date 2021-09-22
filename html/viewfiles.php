@@ -78,8 +78,10 @@ require_once "config.php";
 <div class="box">
     Available Files 
   </div>
-  <form method="post" action="viewfiles.php">
-<table class="table is-striped is-hoverable is-fullwidth">
+  <div class="columns">
+    <div class="column is- half">
+      <form method="post" action="viewfiles.php">
+        <table class="table is-striped is-hoverable is-fullwidth">
     <thead>
       <tr>
         <th>Title</th>
@@ -90,7 +92,7 @@ require_once "config.php";
     <tbody>
       <?php
 
-        $sql = "SELECT * FROM files";
+        $sql = "SELECT * FROM files WHERE type LIKE 'PDF'";
         $result = mysqli_query($link, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
           echo "<tr><td>" . $row['title'] . "</td><td>"
@@ -102,7 +104,42 @@ require_once "config.php";
     </tbody>
 </table> 
   <a class='button is-warning' role='button' href="uploadpdf.php">Upload New PDF</a>
+  </div>
+      </form>
+
+      <div class="column is-half">
+  <form method="post" action="viewfiles.php">
+        <table class="table is-striped is-hoverable is-fullwidth">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Type</th>
+        <th>View Content</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+        $directory = 'doc';
+        $bookFiles = array_diff(scandir($directory), array('..', '.'));  
+        $PDFPrep = 'doc/'; //This line is will be concatenated with the filename so that the pdf opens when the button is clicked
+        $fileSize = 0;
+        $humanReadableFileSize = "";
+        $sql = "SELECT * FROM files WHERE type LIKE 'URL'";
+        $result = mysqli_query($link, $sql);
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo "<tr><td>" . $row['title'] . "</td><td>"
+              . $row['type'] . "</td><td><a class='button is-primary' role='button' href='openurl.php?ID="
+              . $row['TID'] . "'>Open</a>";
+        }
+
+      ?>
+    </tbody>
+</table> 
   <a class='button is-warning' role='button' href="uploadurl.php">Upload New URL</a>
+  </div>
+  </div>
+
+
   <script src="https://unpkg.com/vue@next"></script>
 <script>
         
