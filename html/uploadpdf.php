@@ -97,17 +97,24 @@ require_once "config.php";
 if(isset($_POST['submit'])){
     $Title = $_POST['title'];
     $Type = $_POST['type'];
-    $uploads_dir = '/doc';
+    
+    $uploaddir = "/html/doc/";
+    $dirpath = realpath(dirname(getcwd())) . $uploaddir;
+    $uploadfile = $dirpath . basename($_FILES['userfile']['name']);
     $fname = $_FILES['userfile']['name'];
-    move_uploaded_file($_FILES['userfile']['tmp_name'], $_FILES['userfile']['name']);
-    $query = "INSERT into files (title, type, fname) values ('$Title', '$Type', '$fname')";
-    $result = mysqli_query($link, $query);
-    if($result)
-    {
+
+    if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+      $query = "INSERT into files (title, type, fname) values ('$Title', '$Type', '$fname')";
+      $result = mysqli_query($link, $query);
+      if($result)
+      {
         header("Location: viewfiles.php?uploadsuccess");
-    }
-    else{
-        echo ' Please Check Your Query ';
+      }
+      else{
+          echo ' Please Check Your Query ';
+      }
+    } else {
+        echo "Possible file upload attack!\n";
     }
 }
 ?>
