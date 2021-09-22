@@ -41,7 +41,7 @@
         Home
       </a>
 
-      <a class="navbar-item" href="info.php">
+      <a class="navbar-item" href="qa.php">
         Medicinal Plants
       </a>
 
@@ -106,6 +106,9 @@
     </div>
   </div>
 </div>
+
+
+
 <script src="https://unpkg.com/vue@next"></script>
 <script>
         
