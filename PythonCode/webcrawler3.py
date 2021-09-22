@@ -16,3 +16,7 @@ for job_element in items:
     for link in links:
         testfile.write(link.text.strip())
 testfile.close()   
+
+
+
+
