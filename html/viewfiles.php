@@ -49,13 +49,10 @@ require_once "config.php";
         Home
       </a>
 
-      <a class="navbar-item" href="info.php">
+      <a class="navbar-item" href="qa.php">
         Medicinal Plants
       </a>
 
-      <a class="navbar-item" href="quiz.php">
-        Pop Quiz
-      </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">

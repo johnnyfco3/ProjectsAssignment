@@ -63,9 +63,6 @@ error_reporting(0);
         Medicinal Plants
       </a>
 
-      <a class="navbar-item" href="quiz.php">
-        Pop Quiz
-      </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">

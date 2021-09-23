@@ -37,13 +37,10 @@
         Home
       </a>
 
-      <a class="navbar-item" href="#">
+      <a class="navbar-item" href="qa.php">
         Medicinal Plants
       </a>
 
-      <a class="navbar-item" href="#">
-        Pop Quiz
-      </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
