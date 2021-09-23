@@ -67,22 +67,6 @@ error_reporting(0);
       echo "HELLO"; //TESTER
 
 
-      //BELOW IS JOHNNYS CODE FOR GETTING THE MOST ALIKE COLUMN WHEN INPUTTING A STRING
-
-      /*
-
-      $search = mysqli_real_escape_string($link, $_POST['keyword']);
-     $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses LIKE '%$search%' OR Chemical_Composition LIKE '%$search%' 
-      OR Parts_Used LIKE '%$search%' OR Distribution LIKE '%$search%' OR Flowering_Period LIKE '%$search%' 
-      OR Description LIKE '%$search%' OR English_Names LIKE '%$search%' OR Local_Names LIKE '%$search%' OR Plant_Name LIKE '%$search%'
-      OR  LIKE '%$search%'";
-      
-
-
-      $result = mysqli_query($link, $sql);
-      $queryResults = mysqli_num_rows($result);
-
-      */
       //HENRYS TEST CODE FOR  LOOKING UP ID, WORKS 
       $id = $_POST['id'];
       $query = "SELECT * FROM `Medplant` where id='$id' ";
