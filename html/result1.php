@@ -1,6 +1,7 @@
 <?php
 #require "config.php";
 include "qa.php";
+include "removeCommonWords.php";
 error_reporting(0);
 ?>
 <!DOCTYPE html>
@@ -48,30 +49,52 @@ error_reporting(0);
       <th>Plant Number</th>
 
     </tr><br>
-   
+
 
     <?php
     $connection = mysqli_connect("localhost", "root");
     $db = mysqli_select_db($connection, "DataTest");
- 
-      if (isset($_POST['search'])) {
-        $search = mysqli_real_escape_string($link, $_POST['keyword']);
-        $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses LIKE '%$search%' OR Chemical_Composition LIKE '%$search%' 
+
+    if (isset($_POST['search'])) {
+
+      //Johnny's code for matching a keyword to a part in the table! can be used after outtputting keyword to $questionkey
+    
+
+
+     
+
+
+    
+
+      //writing the question to a file.txt
+      $myfile = fopen("question.txt","w");
+      $questiontxt = $_POST['id'];
+      $questionkey = removeCommonWords($questiontxt);
+      fwrite($myfile, $questionkey);
+      fclose($myfile);
+      echo $questionkey; //Test to show question key on screen
+       //$questionkey  holds the keyword! here Webcrawler can use question.txt/$questionkey has a key for info from a website
+
+       //Johnny's code for searching the Query for the specified keyword below:
+      $search = mysqli_real_escape_string($link, $questionkey);
+      $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses LIKE '%$search%' OR Chemical_Composition LIKE '%$search%' 
         OR Parts_Used LIKE '%$search%' OR Distribution LIKE '%$search%' OR Flowering_Period LIKE '%$search%' 
         OR Description LIKE '%$search%' OR English_Names LIKE '%$search%' OR Local_Names LIKE '%$search%' OR Plant_Name LIKE '%$search%'
         OR  LIKE '%$search%'";
-        $result = mysqli_query($link, $sql);
-        //$queryResults = mysqli_num_rows($result);
+      $result = mysqli_query($link, $sql);
+     // $queryResults = mysqli_num_rows($result);
+      echo $queryResults;       //added echo to check how many results there are 
+   
+      
 
 
-      echo "HELLO"; //TESTER
-
-
-      //HENRYS TEST CODE FOR  LOOKING UP ID, WORKS 
+      //HENRYS TEST CODE FOR  LOOKING UP ID, (WORKS)
       $id = $_POST['id'];
       $query = "SELECT * FROM `Medplant` where id='$id' ";
       $query_run = mysqli_query($connection, $query);
-      while ($row = mysqli_fetch_array($query_run)) {
+     //tried changing the below parameter in the msqli_fetch_array to take in $result (result of the string sql search query)
+     //nothing happens for now though, changed back to query-run
+      while ($row = mysqli_fetch_array($query_run)){
 
 
 
