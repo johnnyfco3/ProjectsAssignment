@@ -3,7 +3,7 @@
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root'); //changed the config file
 define('DB_PASSWORD', ''); //HEY
-define('DB_NAME', 'KB');
+define('DB_NAME', 'DataTest');
  
 /* Attempt to connect to MySQL database */
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
