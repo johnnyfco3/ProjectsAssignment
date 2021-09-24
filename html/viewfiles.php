@@ -116,11 +116,6 @@ require_once "config.php";
     </thead>
     <tbody>
       <?php
-        $directory = 'doc';
-        $bookFiles = array_diff(scandir($directory), array('..', '.'));  
-        $PDFPrep = 'doc/'; //This line is will be concatenated with the filename so that the pdf opens when the button is clicked
-        $fileSize = 0;
-        $humanReadableFileSize = "";
         $sql = "SELECT * FROM files WHERE type LIKE 'URL'";
         $result = mysqli_query($link, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
