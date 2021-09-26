@@ -92,17 +92,16 @@
 <?php
 
 // Include config file
-require_once "config.php";
+//require_once "config.php";
 
 if(isset($_POST['submit'])){
     $Title = $_POST['title'];
     $Type = $_POST['type'];
     
-    $uploaddir = "/html/doc/";
+    $uploaddir = "/html/files/books/";
     $dirpath = realpath(dirname(getcwd())) . $uploaddir;
     $uploadfile = $dirpath . basename($_FILES['userfile']['name']);
     $fname = $_FILES['userfile']['name'];
-
     if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
       $query = "INSERT into files (title, type, fname) values ('$Title', '$Type', '$fname')";
       $result = mysqli_query($link, $query);

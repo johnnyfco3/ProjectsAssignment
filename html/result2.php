@@ -41,6 +41,7 @@ error_reporting(0);
       fwrite($myfile, $questionkey);
       $contents = file_get_contents("question.txt");
       fclose($myfile);
+      exec("python extractkey.py .$contents");  //calling extractkey.py
       
       $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses REGEXP '[[:<:]]Jcquirity[[:>:]]' OR Chemical_Composition REGEXP '[[:<:]]Jcquirity[[:>:]]'
       OR Parts_Used REGEXP '[[:<:]]Jcquirity[[:>:]]' OR Distribution REGEXP '[[:<:]]Jcquirity[[:>:]]' OR Flowering_Period REGEXP '[[:<:]]Jcquirity[[:>:]]' 
