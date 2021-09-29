@@ -32,86 +32,85 @@ error_reporting(0);
 </head>
 
 <body>
+<!--Main content-->
+<div class="card">
+  <div class="card-content">
+    <div class="content">
 <?php
     if (isset($_POST['search'])) {
       //writing the question to a file.txt
-      $myfile = fopen("question.txt","w");
+      $myfile = fopen("files/a-db/question.txt","w");
       $questiontxt = $_POST['question'];
       $questionkey = removeCommonWords($questiontxt);
       fwrite($myfile, $questionkey);
-      $contents = file_get_contents("question.txt");
-      fclose($myfile);
-      exec("python extractkey.py .$contents");  //calling extractkey.py
+      $contents = file_get_contents("files/a-db/question.txt");
+      fclose($myfile);  
+
       
-      $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses REGEXP '[[:<:]]Jcquirity[[:>:]]' OR Chemical_Composition REGEXP '[[:<:]]Jcquirity[[:>:]]'
-      OR Parts_Used REGEXP '[[:<:]]Jcquirity[[:>:]]' OR Distribution REGEXP '[[:<:]]Jcquirity[[:>:]]' OR Flowering_Period REGEXP '[[:<:]]Jcquirity[[:>:]]' 
-      OR Description REGEXP '[[:<:]]Jcquirity[[:>:]]' OR English_Names REGEXP '[[:<:]]Jcquirity[[:>:]]' OR Local_Names REGEXP '[[:<:]]Jcquirity[[:>:]]' OR
-      Plant_Name REGEXP '[[:<:]]Jcquirity[[:>:]]'"; //need to replace Jcquirity with $contents but struggling
+      $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses REGEXP '[[:<:]]${contents}[[:>:]]' OR Chemical_Composition REGEXP '[[:<:]]${contents}[[:>:]]'
+      OR Parts_Used REGEXP '[[:<:]]${contents}[[:>:]]' OR Distribution REGEXP '[[:<:]]${contents}[[:>:]]' OR Flowering_Period REGEXP '[[:<:]]${contents}[[:>:]]' 
+      OR Description REGEXP '[[:<:]]${contents}[[:>:]]' OR English_Names REGEXP '[[:<:]]${contents}[[:>:]]' OR Local_Names REGEXP '[[:<:]]${contents}[[:>:]]' OR
+      Plant_Name REGEXP '[[:<:]]${contents}[[:>:]]'";
 
       $result = mysqli_query($link, $sql);
       if($queryResults = mysqli_num_rows($result)){
-      echo $queryResults;       //added echo to check how many results there are
-      while ($row = mysqli_fetch_array($result)){ 
+      while ($row = mysqli_fetch_array($result)){
+
       ?>
 
-<div class="columns">
-    <div class="column">
-    <figure class="image">
-        <img src="<?php echo $row['Image_Link']; ?>"> <!--Planning on adding image here-->
-    </figure>
-    </div>
 
-    <div class="column is-two-thirds">
-    <h1 class="title is-1"><?php echo $row['Plant_Name']; ?></h1>
+        <figure class="image">
+            <img src="<?php echo $row['Image_Link']; ?>"> <!--Planning on adding image here-->
+        </figure>
+      </div>
+      
+      <h1 class="title is-1"><?php echo $row['Plant_Name']; ?></h1>
 
-    <div class="local-name">
+      <div class="local-name">
         <h1 class="subtitle is-4">Local Name:</h1>
         <?php echo $row['Local_Names']; ?>
-    </div>
+      </div>
 
-    <div class="eng-name">
+      <div class="eng-name">
         <h1 class="subtitle is-4">English Name:</h1>
         <?php echo $row['English_Names']; ?>
-    </div>
+      </div>
 
-    <div class="description">
+      <div class="description">
         <h1 class="subtitle is-4">Description:</h1>
         <?php echo $row['Description']; ?>
-    </div>
+      </div>
 
-    <div class="habitat">
+      <div class="habitat">
         <h1 class="subtitle is-4">Distribution:</h1>
         <?php echo $row['Distribution']; ?>
-    </div>
+      </div>
 
-    <div class="traditional-uses">
+      <div class="traditional-uses">
         <h1 class="subtitle is-4">Traditional Uses:</h1>
         <?php echo $row['Therapeutic_Uses']; ?>
-    </div>
+      </div>
 
-    <div class="constituents">
+      <div class="constituents">
         <h1 class="subtitle is-4">Chemical Composition:</h1>
         <?php echo $row['Chemical_Composition']; ?>
-    </div>
+      </div>
 
-    <div class="biological-activity">
+      <div class="biological-activity">
         <h1 class="subtitle is-4">Parts Used:</h1>
         <?php echo $row['Parts_Used']; ?>
-    </div>
+      </div>
 
-    <div class="biological-activity">
+      <div class="biological-activity">
         <h1 class="subtitle is-4">Flowering Period:</h1>
-        <?php echo $row['Flowering_Period']; }}}?>
+        <?php echo $row['Flowering_Period']; }?>
     </div>
-
-    <div class="source">
-        <h1 class="subtitle is-4">Sources:</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a>
-      <br>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-    </div>
+  </div>
+  <?php }}
+  echo "<br>";
+  echo shell_exec("python ../PythonCode/extractkey.py ${contents}");?>
+  </div>
+</div>
 </div>
 </body>
 </html>

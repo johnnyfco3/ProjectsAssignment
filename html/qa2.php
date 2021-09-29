@@ -1,20 +1,11 @@
 <?php
-
 session_start();
 require "config.php";
 error_reporting(0);
-
 ?>
 
 <!DOCTYPE html>
 <style>
-
-  table,th,td{
-
-    border: 3px solid black;
-    width:1200px;
-    background-color: silver;
-  }
     .navbar-brand{
         font-size: 25px;
         font-family: fantasy;
@@ -27,6 +18,12 @@ error_reporting(0);
     .media-content p{
         text-align: center;
     }
+    .searchbar input{
+      width: 80%;
+    }
+    .searchbar button{
+        margin-left: 15px;
+    }
 </style>
 <html lang="en">
 <head>
@@ -34,7 +31,7 @@ error_reporting(0);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <title>Knowledge Base</title>
+    <title>Medicinal Plants</title>
 </head>
 <body>
 <!--Navbar-->
@@ -90,24 +87,25 @@ error_reporting(0);
 </nav>
 </div>
 <!--Main Content-->
-<div class="container-fluid">
- <h2>
-  <strong>Browse:</strong>
- </h2>
-</div>
-<div class="container-fluid">
-   <h3>
-     Medicinal Plants
-  </h3>
-</div>
+<div class="card">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="title is-4">Question and Answer</p>
+        <p class="subtitle is-6">Ask Away!</p>
+      </div>
+    </div>
 
-<strong>
-<div class="container-fluid">Enter a question to bring up the corresponding Plant Data!</div>
-</strong>
-<form action="result2.php" method="post" class="container-fluid">
-  <input type="text"  name="question" placeholder="Enter a question in lowercase" style="width:400px;height:75px">
-  <input type="submit" name="search">
-</form>
+    <div class="content">
+      <form action="result2.php" method="post" class="container-fluid">
+          <div class="searchbar">
+            <input class="input is-rounded is centered" type="text" name="question" placeholder="Enter a question in lowercase">
+            <button type="submit" name="search" class="button is-primary is-outlined is-rounded">Search</button>
+          </div>
+      </form>
+    </div>
+  </div>
+  </div>
 
 <script src="https://unpkg.com/vue@next"></script>
 <script>
