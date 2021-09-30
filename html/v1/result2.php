@@ -39,11 +39,11 @@ error_reporting(0);
 <?php
     if (isset($_POST['search'])) {
       //writing the question to a file.txt
-      $myfile = fopen("files/a-db/question.txt","w");
+      $myfile = fopen("../files/a-db/question.txt","w");
       $questiontxt = $_POST['question'];
       $questionkey = removeCommonWords($questiontxt);
       fwrite($myfile, $questionkey);
-      $contents = file_get_contents("files/a-db/question.txt");
+      $contents = file_get_contents("../files/a-db/question.txt");
       fclose($myfile);  
 
       
@@ -108,7 +108,7 @@ error_reporting(0);
   </div>
   <?php }}
   echo "<br>";
-  echo shell_exec("python ../PythonCode/extractkey.py ${contents}");?>
+  echo shell_exec("python ../cgi-bin/v1-web/extractkey.py ${contents}");?>
   </div>
 </div>
 </div>

@@ -92,13 +92,14 @@
 <?php
 
 // Include config file
-//require_once "config.php";
+require_once "config.php";
 
 if(isset($_POST['submit'])){
     $Title = $_POST['title'];
     $Type = $_POST['type'];
+    echo 'here';
     
-    $uploaddir = "/html/files/books/";
+    $uploaddir = "/files/books/";
     $dirpath = realpath(dirname(getcwd())) . $uploaddir;
     $uploadfile = $dirpath . basename($_FILES['userfile']['name']);
     $fname = $_FILES['userfile']['name'];
