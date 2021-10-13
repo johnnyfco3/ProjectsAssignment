@@ -49,7 +49,7 @@ require_once "config.php";
         Home
       </a>
 
-      <a class="navbar-item" href="qa.php">
+      <a class="navbar-item" href="qa2.php">
         Medicinal Plants
       </a>
 

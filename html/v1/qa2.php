@@ -53,7 +53,7 @@ error_reporting(0);
         Home
       </a>
 
-      <a class="navbar-item" href="qa.php">
+      <a class="navbar-item" href="qa2.php">
         Medicinal Plants
       </a>
 
