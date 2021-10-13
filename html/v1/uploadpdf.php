@@ -74,9 +74,11 @@
   </div>
 </div>
 
+</div> 
 <div class="field">
   Upload File to Scan
   <input type="file" name="userfile" id="userfile" required>
+  <input type="hidden" name="MAX_FILE_SIZE" value="30000000000" />
 </div>
 
 <div class="field">
@@ -93,7 +95,6 @@ require_once "config.php";
 if(isset($_POST['submit'])){
     $Title = $_POST['title'];
     $Type = $_POST['type'];
-    echo 'here';
     
     $uploaddir = "/files/books/";
     $dirpath = realpath(dirname(getcwd())) . $uploaddir;

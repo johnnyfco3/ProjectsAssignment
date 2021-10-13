@@ -45,72 +45,34 @@ error_reporting(0);
       $questionkey = removeCommonWords($questiontxt);
       fwrite($outfile, $questionkey);
       fwrite($myfile, $questiontxt);
-      $contents = file_get_contents("../files/a-db/keyword.txt");
-      fclose($myfile);  
+      fclose($outfile);
+      fclose($myfile);
+      $file_handle = fopen("../files/a-db/keyword.txt", "rb");
+      while (!feof($file_handle) ) {
+        $line_of_text = fgets($file_handle);
+        $parts = explode(', ', $line_of_text);
+        foreach ($parts as &$value) {
+          $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_Composition REGEXP '[[:<:]]${value}[[:>:]]'
+          OR Parts_Used REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Flowering_Period REGEXP '[[:<:]]${value}[[:>:]]' 
+          OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR English_Names REGEXP '[[:<:]]${value}[[:>:]]' OR Local_Names REGEXP '[[:<:]]${value}[[:>:]]' OR
+          Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
 
-      
-      $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses REGEXP '[[:<:]]${contents}[[:>:]]' OR Chemical_Composition REGEXP '[[:<:]]${contents}[[:>:]]'
-      OR Parts_Used REGEXP '[[:<:]]${contents}[[:>:]]' OR Distribution REGEXP '[[:<:]]${contents}[[:>:]]' OR Flowering_Period REGEXP '[[:<:]]${contents}[[:>:]]' 
-      OR Description REGEXP '[[:<:]]${contents}[[:>:]]' OR English_Names REGEXP '[[:<:]]${contents}[[:>:]]' OR Local_Names REGEXP '[[:<:]]${contents}[[:>:]]' OR
-      Plant_Name REGEXP '[[:<:]]${contents}[[:>:]]'";
+          $result = mysqli_query($link, $sql);
+          if($queryResults = mysqli_num_rows($result)){
+          while ($row = mysqli_fetch_array($result)){
+          ?>
+          <ul>
+            <li>
+              <?php echo "<a href='dbanswer.php?ID=". $row['ID'] . "'>". $row['Plant_Name'] ."</a>"; 
+              ?>
+            </li>  
+          </ul>
 
-      $result = mysqli_query($link, $sql);
-      if($queryResults = mysqli_num_rows($result)){
-      while ($row = mysqli_fetch_array($result)){
-
-      ?>
-
-
-        <figure class="image">
-            <img src="<?php echo $row['Image_Link']; ?>"> <!--Planning on adding image here-->
-        </figure>
-      </div>
-      
-      <h1 class="title is-1"><?php echo $row['Plant_Name']; ?></h1>
-
-      <div class="local-name">
-        <h1 class="subtitle is-4">Local Name:</h1>
-        <?php echo $row['Local_Names']; ?>
-      </div>
-
-      <div class="eng-name">
-        <h1 class="subtitle is-4">English Name:</h1>
-        <?php echo $row['English_Names']; ?>
-      </div>
-
-      <div class="description">
-        <h1 class="subtitle is-4">Description:</h1>
-        <?php echo $row['Description']; ?>
-      </div>
-
-      <div class="habitat">
-        <h1 class="subtitle is-4">Distribution:</h1>
-        <?php echo $row['Distribution']; ?>
-      </div>
-
-      <div class="traditional-uses">
-        <h1 class="subtitle is-4">Traditional Uses:</h1>
-        <?php echo $row['Therapeutic_Uses']; ?>
-      </div>
-
-      <div class="constituents">
-        <h1 class="subtitle is-4">Chemical Composition:</h1>
-        <?php echo $row['Chemical_Composition']; ?>
-      </div>
-
-      <div class="biological-activity">
-        <h1 class="subtitle is-4">Parts Used:</h1>
-        <?php echo $row['Parts_Used']; ?>
-      </div>
-
-      <div class="biological-activity">
-        <h1 class="subtitle is-4">Flowering Period:</h1>
-        <?php echo $row['Flowering_Period']; }?>
-    </div>
-  </div>
-  <?php }}
-  echo "<br>";
-  echo shell_exec("python ../cgi-bin/v1-web/extractkey.py ${contents}");?>
+          <?php }}
+          echo "<br>";
+            echo shell_exec("python ../cgi-bin/v1-web/extractkey.py ${value}");}}
+            fclose($file_handle);
+          }?>
   </div>
 </div>
 </div>

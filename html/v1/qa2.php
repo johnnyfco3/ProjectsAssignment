@@ -99,7 +99,7 @@ error_reporting(0);
     <div class="content">
       <form action="result2.php" method="post" class="container-fluid">
           <div class="searchbar">
-            <input class="input is-rounded is centered" type="text" name="question" placeholder="Enter a question in lowercase">
+            <input class="input is-rounded is centered" type="text" name="question" placeholder="Enter a question in lowercase. If you want multiple plants, separate with comma.">
             <button type="submit" name="search" class="button is-primary is-outlined is-rounded">Search</button>
           </div>
       </form>

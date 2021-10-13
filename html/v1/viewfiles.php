@@ -83,22 +83,92 @@ require_once "config.php";
       <tr>
         <th>Title</th>
         <th>Type</th>
-        <th>View Content</th>
       </tr>
     </thead>
     <tbody>
       <?php
-
-        $sql = "SELECT * FROM files WHERE type LIKE 'PDF'";
-        $result = mysqli_query($link, $sql);
-        while ($row = mysqli_fetch_assoc($result)) {
-          echo "<tr><td>" . $row['title'] . "</td><td>"
-              . $row['type'] . "</td><td><a class='button is-primary' role='button' href='openfile.php?ID="
-              . $row['TID'] . "'>Open</a>";
+      //Search through the "doc" folder to get the resulted book titles and file size
+      //then display them on a table
+      $directory = '../files/books';
+      $bookFiles = array_diff(scandir($directory), array('..', '.'));  
+      $PDFPrep = '../files/books/'; //This line is will be concatenated with the filename so that the pdf opens when the button is clicked
+      $fileSize = 0;
+      $humanReadableFileSize = "";
+      $sql = "SELECT * FROM files WHERE type LIKE 'PDF'";
+      $result = mysqli_query($link, $sql);
+      $pdf = ' ';
+      while ($row = mysqli_fetch_assoc($result)) {
+        $pdf = $row['type'];
+      }
+        foreach($bookFiles as $files){
+            if(!is_file($files)){
+            echo "<tr>
+              <td>{$files}</td></td><td>". $pdf . "</td><td>";
+        $fileDirectory = $directory. $files;
+        //Prepare file size and pdf to open
+        // $filesize = filesize($fileDirectory);
+        //$humanReadableFileSize = FileSizeConvert($filesize);
+        $PDFDirectory = $PDFPrep . $files;  
+        echo "<!--<td>{$humanReadableFileSize}</td>-->
+              <td>
+                <a class='button is-primary' href='{$PDFDirectory}' role='button'>Open</a>
+              </td>
+              </tr>\n";
         }
-
+        }
       ?>
-    </tbody>
+      
+      <?php
+      //Taken from PHP.net
+      /**
+      * Converts bytes into human readable file size.
+      *
+      * @param string $bytes
+      * @return string human readable file size (2,87 Мб)
+      * @author Mogilev Arseny
+      */
+      function FileSizeConvert($bytes)
+      {	
+          if($bytes == 0){ 
+            return "0 MB";
+          }
+          $bytes = floatval($bytes);
+              $arBytes = array(
+                  0 => array(
+                      "UNIT" => "TB",
+                      "VALUE" => pow(1024, 4)
+                  ),
+                  1 => array(
+                      "UNIT" => "GB",
+                      "VALUE" => pow(1024, 3)
+                  ),
+                  2 => array(
+                      "UNIT" => "MB",
+                      "VALUE" => pow(1024, 2)
+                  ),
+                  3 => array(
+                      "UNIT" => "KB",
+                      "VALUE" => 1024
+                  ),
+                  4 => array(
+                      "UNIT" => "B",
+                      "VALUE" => 1
+                  ),
+              );
+      
+          foreach($arBytes as $arItem)
+          {
+              if($bytes >= $arItem["VALUE"])
+              {
+                  $result = $bytes / $arItem["VALUE"];
+                  $result = str_replace(".", "," , strval(round($result, 2)))." ".$arItem["UNIT"];
+                  break;
+              }
+          }
+          return $result;
+      }
+      ?>
+      </tbody>
 </table> 
   <a class='button is-warning' role='button' href="uploadpdf.php">Upload New PDF</a>
   </div>
@@ -111,7 +181,6 @@ require_once "config.php";
       <tr>
         <th>Title</th>
         <th>Type</th>
-        <th>View Content</th>
       </tr>
     </thead>
     <tbody>
