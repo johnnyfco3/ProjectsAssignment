@@ -41,9 +41,11 @@ error_reporting(0);
       //writing the question to a file.txt
       $myfile = fopen("../files/a-db/question.txt","w");
       $questiontxt = $_POST['question'];
+      $outfile = fopen("../files/a-db/keyword.txt","w");
       $questionkey = removeCommonWords($questiontxt);
-      fwrite($myfile, $questionkey);
-      $contents = file_get_contents("../files/a-db/question.txt");
+      fwrite($outfile, $questionkey);
+      fwrite($myfile, $questiontxt);
+      $contents = file_get_contents("../files/a-db/keyword.txt");
       fclose($myfile);  
 
       
