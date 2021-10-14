@@ -40,21 +40,6 @@
       <a class="navbar-item" href="quiz.php">
         Pop Quiz
       </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="about.php">
-            About
-          </a>
-          <a class="navbar-item" href="#">
-            Contact
-          </a>
-        </div>
-      </div>
     </div>
 </nav>
 </div>
