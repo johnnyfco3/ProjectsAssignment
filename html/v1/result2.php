@@ -88,12 +88,10 @@ error_reporting(0);
               ?>
 
 
-                  <ul>
-
-                    <li>
-                      <?php echo "<a href='dbanswer.php?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
-                      ?>
-                    </li>
+                  <li>
+                    <?php echo "<a href='dbanswer.php?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
+                    ?>
+                  </li>
                   </ul>
 
 
@@ -102,12 +100,10 @@ error_reporting(0);
               ?>
               <div class="hero is-warning">
                 <div class="hero-body">
-                  <div class="title">Here is information on plants from a Webcrawler </div>
+                  <div class="title">Here is Webcrawler Information based on Plant/s</div>
                 </div>
               </div>
         <?php
-
-
               echo "<br>";
               echo shell_exec("python ../cgi-bin/v1-web/extractkey.py ${value}");
             }
