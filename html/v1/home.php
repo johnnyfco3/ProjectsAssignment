@@ -16,6 +16,10 @@
 
   }
 
+  .section{
+    
+    }
+
   .hero {
     text-align: center;
 
@@ -28,10 +32,14 @@
   }
 
   .databasebio {
+    background: url("https://media.tehrantimes.com/d/t/2020/07/15/4/3500545.jpg");
+    background-size: cover;
     font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
     border-style: groove;
     border-width: 5px;
+    color: white;
+    font-weight: 600;
   }
 
   .banner {
@@ -121,7 +129,7 @@
   </div>
   <div>
     <div>
-      <div class="section">
+      <div id="bg" class="section">
         <div>
           <h2 class="banner"style="border-style:double;border-width:15px;">Medicinal Plants <i class="fab fa-pagelines" ></i></h2>
 

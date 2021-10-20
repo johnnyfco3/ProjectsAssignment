@@ -64,7 +64,7 @@ error_reporting(0);
           while (!feof($file_handle)) {
             
             $line_of_text = fgets($file_handle);
-            $parts = explode(',', $line_of_text);
+            $parts = explode(', ', $line_of_text);
             print_r($parts);
             ?> <hr> <?php
           
@@ -81,7 +81,7 @@ error_reporting(0);
           OR Parts_Used REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Flowering_Period REGEXP '[[:<:]]${value}[[:>:]]' 
           OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR English_Names REGEXP '[[:<:]]${value}[[:>:]]' OR Local_Names REGEXP '[[:<:]]${value}[[:>:]]' OR
           Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
-
+  
               $result = mysqli_query($link, $sql);
 
         ?>
