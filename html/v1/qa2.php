@@ -10,6 +10,7 @@ error_reporting(0);
     font-size: 25px;
     font-family: fantasy;
   }
+
   .navbar-menu {
     font-family: 'Amatic SC', cursive;
     font-family: 'Roboto Condensed', sans-serif;
@@ -125,20 +126,23 @@ error_reporting(0);
 
       <p class="subtitle">
         Ask a question about plants!
+        <img id="gif" src="../files/animations/prethinking.gif" width="100" height="100">
+
 
       </p>
+
 
     </div>
   </section>
   <br>
 
   <div class="field">
-    <form action="result2.php" method="get" class="container-fluid">
+    <form id="searchform" action="result2.php" method="get" class="container-fluid" onsubmit="changeImage();">
       <div class="searchbar">
-      <i class="far fa-lightbulb fa-2x"></i>
-      <i class="fas fa-grin-alt fa-2x fa-flip"></i>
+        <i class="far fa-lightbulb fa-2x"></i>
+        <i class="fas fa-grin-alt fa-2x fa-flip"></i>
         <input class="input is-rounded is centered" type="text" name="question" placeholder="Enter a question in lowercase. If you want multiple plants, separate with comma." style="padding-right:10px;">
-        <button type="submit" name="search" class="button is-primary is-outlined is-rounded">Search</button>
+        <button type="submit" name="search" class="button is-primary is-outlined is-rounded" onclick="changeImage();">Search</button>
         <i class="fas fa-spinner fa-pulse fa-2x"></i>
       </div>
     </form>
@@ -147,6 +151,7 @@ error_reporting(0);
   </div>
   <script src="https://kit.fontawesome.com/c7451615db.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/vue@next"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   <script>
     const VM = {
       data() {
@@ -157,6 +162,22 @@ error_reporting(0);
     }
 
     Vue.createApp(VM).mount('.nav')
+
+    function changeImage() {
+      document.getElementById("gif").src = "../files/animations/postthinking.gif"
+    }
+    //setTimeout(() => $("#searchform").submit(), 5000);
+
+
+/*$('form').on('submit', function(e) {
+      var form = this;
+      setTimeout(function() {
+        form.submit();
+        
+     
+      }, 2000);
+      return false;
+    });*/
   </script>
 </body>
 

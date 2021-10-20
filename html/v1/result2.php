@@ -43,10 +43,10 @@ error_reporting(0);
 
 
 
-  </div>
-  <div class="card">
-    <div class="card-content">
-      <div class="content">
+  
+  <div class="section">
+    <div class="card">
+      <div class="card-content">
         <?php
         if (isset($_GET['search'])) {
           //writing the question to a file.txt
@@ -59,11 +59,24 @@ error_reporting(0);
           fclose($outfile);
           fclose($myfile);
           $file_handle = fopen("../files/a-db/keyword.txt", "rb");
+          
 
           while (!feof($file_handle)) {
+            
             $line_of_text = fgets($file_handle);
-            $parts = explode(', ', $line_of_text);
+            $parts = explode(',', $line_of_text);
+            print_r($parts);
+            ?> <hr> <?php
+          
+           
+            
             foreach ($parts as &$value) {
+          
+
+
+            
+
+             
               $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_Composition REGEXP '[[:<:]]${value}[[:>:]]'
           OR Parts_Used REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Flowering_Period REGEXP '[[:<:]]${value}[[:>:]]' 
           OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR English_Names REGEXP '[[:<:]]${value}[[:>:]]' OR Local_Names REGEXP '[[:<:]]${value}[[:>:]]' OR
@@ -72,48 +85,81 @@ error_reporting(0);
               $result = mysqli_query($link, $sql);
 
         ?>
+              <div class="columns" style="border-style:inset;border-width:10px;border-color:brown;">
+                <div class="column">
 
-              <div class="hero is-warning">
-                <div class="hero-body">
-                  <div class="title">Here is information on plants from a PDF document</div>
-                </div>
-              </div>
+                  <div class="hero" style="background-color:burlywood;">
+                    <div class="hero-body">
+                      <div class="title">Here is information on plants from a PDF document about <?php echo "$value" ?></div>
+                    </div>
+                  </div>
 
 
+
+                  <?php
+
+                  if ($queryResults = mysqli_num_rows($result)) {
+                    while ($row = mysqli_fetch_array($result)) {
+
+                  ?>
+
+
+
+
+                      <li style="border-style:inset;border-width:10px;border-color:lightgreen">
+                        <ul><?php echo "<a style='color:black;' href='dbanswer.php?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
+                            ?>
+                        </ul>
+                      </li>
+
+
+
+
+
+
+                      
+
+
+
+
+
+                  <?php } 
+                  }
+                  ?>
+                  </div>
+                  <?php
+                  
+                  ?>
+                
+                <div class="column">
+
+                  <div class="hero" style="background-color:burlywood;">
+                    <div class="hero-body">
+                      <div class="title">Here is Webcrawler Information based on <?php echo "$value" ?></div>
+                    </div>
+                  </div>
+                  <section style="border-style:double;border-width:10px;border-color:lightgreen;">
               <?php
 
-              if ($queryResults = mysqli_num_rows($result)) {
-                while ($row = mysqli_fetch_array($result)) {
-
-              ?>
-
-
-                  <li>
-                    <?php echo "<a href='dbanswer.php?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
-                    ?>
-                  </li>
-                  </ul>
-
-
-              <?php }
-              }
-              ?>
-              <div class="hero is-warning">
-                <div class="hero-body">
-                  <div class="title">Here is Webcrawler Information based on Plant/s</div>
-                </div>
-              </div>
-        <?php
               echo "<br>";
               echo shell_exec("python ../cgi-bin/v1-web/extractkey.py ${value}");
+              ?>
+              </section>
+                </div>
+                </div>
+                <?php
             }
           }
           fclose($file_handle);
         } ?>
+                  
 
+                
+
+              </div>
       </div>
     </div>
-  </div>
+  
 </body>
 
 </html>

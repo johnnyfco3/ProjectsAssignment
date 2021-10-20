@@ -123,7 +123,7 @@
     <div>
       <div class="section">
         <div>
-          <h2 class="banner">Medicinal Plants <i class="fab fa-pagelines"></i></h2>
+          <h2 class="banner"style="border-style:double;border-width:15px;">Medicinal Plants <i class="fab fa-pagelines" ></i></h2>
 
 
           <div class="databasebio">

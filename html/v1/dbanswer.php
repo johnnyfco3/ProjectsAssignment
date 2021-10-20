@@ -17,6 +17,15 @@
     font-family: 'Times New Roman', Times, serif;
     margin-top: 10px;
   }
+
+  .banner {
+    font-size: 80px;
+
+    font-family: 'Fleur De Leah', cursive;
+
+    text-align: center;
+
+  }
 </style>
 <html lang="en">
 
@@ -48,7 +57,7 @@
             Home
           </a>
 
-          <a class="navbar-item" href="info.php">
+          <a class="navbar-item" href="qa2.php">
             Medicinal Plants
           </a>
         </div>
@@ -81,56 +90,66 @@
   ?>
 
 
+
+
+
+        <h1 class="banner" style="background-color:lightgreen"><?php echo $row['Plant_Name']; ?></h1>
+
         <figure class="image">
-          <img src="<?php echo $row['Image_Link']; ?>">
+          <div class=columns>
+            <div class=column></div>
+
+            <div class=column style="padding-right: 185px;"><a href="..<?php echo $row['Image_Link']; ?>">Click here for the plant picture!</a></div>
+          </div>
+
+
         </figure>
 
-        <h1 class="title is-1"><?php echo $row['Plant_Name']; ?></h1>
+        <section style="border-style: double;border-color:green;border-width:10px;">
 
-        <div class="local-name">
-          <h1 class="subtitle is-4">Local Name:</h1>
-          <?php echo $row['Local_Names']; ?>
-        </div>
+          <div class="local-name">
+            <h1 class="subtitle is-4">Local Name:</h1>
+            <?php echo $row['Local_Names']; ?>
+          </div>
 
-        <div class="eng-name">
-          <h1 class="subtitle is-4">English Name:</h1>
-          <?php echo $row['English_Names']; ?>
-        </div>
+          <div class="eng-name">
+            <h1 class="subtitle is-4">English Name:</h1>
+            <?php echo $row['English_Names']; ?>
+          </div>
 
-        <div class="description">
-          <h1 class="subtitle is-4">Description:</h1>
-          <?php echo $row['Description']; ?>
-        </div>
+          <div class="description">
+            <h1 class="subtitle is-4">Description:</h1>
+            <?php echo $row['Description']; ?>
+          </div>
 
-        <div class="habitat">
-          <h1 class="subtitle is-4">Distribution:</h1>
-          <?php echo $row['Distribution']; ?>
-        </div>
+          <div class="habitat">
+            <h1 class="subtitle is-4">Distribution:</h1>
+            <?php echo $row['Distribution']; ?>
+          </div>
 
-        <div class="traditional-uses">
-          <h1 class="subtitle is-4">Traditional Uses:</h1>
-          <?php echo $row['Therapeutic_Uses']; ?>
-        </div>
+          <div class="traditional-uses">
+            <h1 class="subtitle is-4">Traditional Uses:</h1>
+            <?php echo $row['Therapeutic_Uses']; ?>
+          </div>
 
-        <div class="constituents">
-          <h1 class="subtitle is-4">Chemical Composition:</h1>
-          <?php echo $row['Chemical_Composition']; ?>
-        </div>
+          <div class="constituents">
+            <h1 class="subtitle is-4">Chemical Composition:</h1>
+            <?php echo $row['Chemical_Composition']; ?>
+          </div>
 
-        <div class="biological-activity">
-          <h1 class="subtitle is-4">Parts Used:</h1>
-          <?php echo $row['Parts_Used']; ?>
-        </div>
+          <div class="biological-activity">
+            <h1 class="subtitle is-4">Parts Used:</h1>
+            <?php echo $row['Parts_Used']; ?>
+          </div>
 
-        <div class="biological-activity">
-          <h1 class="subtitle is-4">Flowering Period:</h1>
-    <?php echo $row['Flowering_Period'];
-
-     
+          <div class="biological-activity">
+            <h1 class="subtitle is-4">Flowering Period:</h1>
+      <?php echo $row['Flowering_Period'];
       }
     }
   } ?>
-        </div>
+          </div>
+        </section>
 
         <script src="https://unpkg.com/vue@next"></script>
         <script>
