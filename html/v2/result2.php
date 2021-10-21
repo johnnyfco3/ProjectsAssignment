@@ -55,22 +55,42 @@ error_reporting(0);
           $outfile = fopen("../files/a-db/keyword.txt", "w");
           $questionkey = removeCommonWords($questiontxt);
           fwrite($outfile, $questionkey);
-          fwrite($myfile, $questiontxt);
+          $stringArray = explode(' ', $questionkey); //creates Array where separation occurrs by each space
+          $stringArray = array_filter($stringArray, function($a) {  //function deletes all empty indices left over after removing commonWords
+            return trim($a) !== "";
+        });
+          
+          foreach($stringArray as &$value){  //loop removes all commas, qmarks, colons, semicolons entered if given in input from the keyword
+            $value = str_replace(",", "", $value);
+            $value = str_replace("?", "", $value);
+            $value = str_replace(":", "", $value);
+            $value = str_replace(";", "", $value);
+          }
+         
+          print_r($stringArray); //prints the array for testing purposes
+          fwrite($myfile, $questiontxt); //writes the questiontxt into a file
           fclose($outfile);
-          fclose($myfile);
+          fclose($myfile);  
           $file_handle = fopen("../files/a-db/keyword.txt", "rb");
           
 
           while (!feof($file_handle)) {
             
+            
             $line_of_text = fgets($file_handle);
-            $parts = explode(', ', $line_of_text);
-            print_r($parts);
+            //$parts = explode(', ', $line_of_text);
+            //print_r($parts);
             ?> <hr> <?php
+            
           
            
             
-            foreach ($parts as &$value) {
+            foreach ($stringArray as &$value) {
+
+              
+              
+              
+             
               
 
 
