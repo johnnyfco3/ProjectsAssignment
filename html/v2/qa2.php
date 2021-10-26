@@ -141,7 +141,7 @@ error_reporting(0);
       <div class="searchbar">
         <i class="far fa-lightbulb fa-2x"></i>
         <i class="fas fa-grin-alt fa-2x fa-flip"></i>
-        <input class="input is-rounded is centered" type="text" name="question" placeholder="Enter a question in lowercase. If you want multiple plants, please separate by spaces" style="padding-right:10px;">
+        <input class="input is-rounded is centered" type="text" name="question" placeholder="Enter a question" style="padding-right:10px;">
         <button type="submit" name="search" class="button is-primary is-outlined is-rounded" onclick="changeImage();">Search</button>
         <i class="fas fa-spinner fa-pulse fa-2x"></i>
       </div>

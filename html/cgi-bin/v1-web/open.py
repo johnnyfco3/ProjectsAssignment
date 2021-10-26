@@ -1,0 +1,1 @@
+fullfile = open("../files/a-web/fullanswer.txt", "a")

@@ -8,9 +8,18 @@ require_once "config.php";
         font-size: 25px;
         font-family: fantasy;
     }
+    .navbar-menu {
+    font-family: 'Amatic SC', cursive;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+  }
     .box{
-        text-align: center;
-        font-size: 40px;
+    text-align: center;
+    font-family: cursive;
+    font-size: 40px;
+    border-style: inset;
+    padding-bottom: 10px;
+    border-width: 10px;
     }
     .file{
         margin-top: 15px;
@@ -58,7 +67,7 @@ require_once "config.php";
 </div>
 <!--Main Content-->
 <div class="box">
-    Available Files 
+   <label style="color:green;">Available Files</label> 
   </div>
   <div class="columns">
     <div class="column is- half">
@@ -88,7 +97,7 @@ require_once "config.php";
         foreach($bookFiles as $files){
             if(!is_file($files)){
             echo "<tr>
-              <td>{$files}</td></td><td>". $pdf . "</td><td>";
+              <td>{$files}</td></td><td>". $pdf . "</td><td><a class='button is-primary' role='button' href='delete.php?file={$files}'>Remove</a>";
         $fileDirectory = $directory. $files;
         //Prepare file size and pdf to open
         // $filesize = filesize($fileDirectory);
@@ -175,7 +184,8 @@ require_once "config.php";
         while ($row = mysqli_fetch_assoc($result)) {
           echo "<tr><td>" . $row['title'] . "</td><td>"
               . $row['type'] . "</td><td><a class='button is-primary' role='button' href='openurl.php?ID="
-              . $row['TID'] . "'>Open</a>";
+              . $row['TID'] . "'>Open</a></td><td><a class='button is-primary' role='button' 
+              href='delete.php?file=". $row['fname'] ."'>Remove</a>";
         }
 
       ?>
