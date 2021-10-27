@@ -51,7 +51,7 @@ with open(args.json) as json_file:
     pdf_format = json.load(json_file)
     json_file.close()
 
-pdfFileObj = open('../html/doc/%s'%(args.pdf), 'rb')
+pdfFileObj = open('../html/files/books/%s'%(args.pdf), 'rb')
 pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
 
 # create db table from info given in 
