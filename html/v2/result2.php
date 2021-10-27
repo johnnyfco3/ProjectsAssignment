@@ -72,7 +72,7 @@ error_reporting(0);
             $value = str_replace(";", "", $value);
           }
          
-          print_r($stringArray); //prints the array for testing purposes
+          //print_r($stringArray); //prints the array for testing purposes
           fwrite($myfile, $questiontxt); //writes the questiontxt into a file
           fclose($outfile);
           fclose($outfile2);
@@ -85,7 +85,7 @@ error_reporting(0);
             $line_of_text = fgets($file_handle);
             //$parts = explode(', ', $line_of_text);
             //print_r($parts);
-            ?> <hr> <?php
+            ?> <!--<hr>--> <?php
             foreach ($stringArray as &$value) {
       
           $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_Composition REGEXP '[[:<:]]${value}[[:>:]]'
@@ -153,13 +153,13 @@ error_reporting(0);
           $stringArray2 = array_filter($stringArray2, function($a) {  //function deletes all empty indices left over after removing commonWords
             return trim($a) !== "";
         });
-        print_r($stringArray2); //prints the array for testing purposes
+        //print_r($stringArray2); //prints the array for testing purposes
 
           while (!feof($file_handle2)) {          
             $line_of_text = fgets($file_handle2);
             //$parts = explode(', ', $line_of_text);
             //print_r($parts);
-            ?> <hr> <?php           
+            ?> <!--<hr>--> <?php           
             foreach ($stringArray2 as &$value) {             
               $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_Composition REGEXP '[[:<:]]${value}[[:>:]]'
           OR Parts_Used REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Flowering_Period REGEXP '[[:<:]]${value}[[:>:]]' 
@@ -223,13 +223,13 @@ error_reporting(0);
           $stringArray3 = array_filter($stringArray3, function($a) {  //function deletes all empty indices left over after removing commonWords
             return trim($a) !== "";
         });
-        print_r($stringArray3); //prints the array for testing purposes
+        //print_r($stringArray3); //prints the array for testing purposes
 
           while (!feof($file_handle3)) {          
             $line_of_text = fgets($file_handle3);
             //$parts = explode(', ', $line_of_text);
             //print_r($parts);
-            ?> <hr> <?php           
+            ?> <!--<hr>--> <?php           
             foreach ($stringArray3 as &$value) {             
               $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_Composition REGEXP '[[:<:]]${value}[[:>:]]'
           OR Parts_Used REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Flowering_Period REGEXP '[[:<:]]${value}[[:>:]]' 

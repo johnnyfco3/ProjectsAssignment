@@ -39,12 +39,8 @@
         Home
       </a>
 
-      <a class="navbar-item" href="info.php">
-        Medicinal Plants
-      </a>
-
-      <a class="navbar-item" href="quiz.php">
-        Pop Quiz
+      <a class="navbar-item" href="qa2.php">
+      Ask a Question
       </a>
     </div>
 </nav>

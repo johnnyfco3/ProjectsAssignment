@@ -149,6 +149,22 @@ with open("../files/a-web/tid9input.txt", "r") as input9:
     if source9 == True:
         fullfile.write('\n -- Source: https://www.frontiersin.org/articles/10.3389/fphar.2019.01480/full -- \n')
 
+with open("../files/a-web/testinput.txt", "r") as input10:
+    source10 = False
+    input10_ = input10.read().split(".")
+    for i10 in input10_:
+        outcome10 = i10.split()
+        if word in outcome10:
+            source10 = True
+            testfile.write(' ' + i10 + ' \n')
+            break
+    for j10 in input10_:
+        outcome18 = j10.split()
+        if word in outcome18:
+            fullfile.write(' ' + j10 + ' \n')
+    if source10 == True:
+        fullfile.write('\n -- Source: http://cs.newpaltz.edu/p/f21-11/v2/webtest/a1.htm -- \n')
+
 testfile.close()
 f = open("../files/a-web/webanswer.txt", "r")
 print(f.read())

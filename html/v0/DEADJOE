@@ -1,0 +1,22 @@
+
+*** These modified files were found in JOE when it aborted on Wed Mar 17 12:52:19 2021
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+config.php~
+config.php
+config.php~
+config.php~
+config.php
+config.php
+mysql_database.txt
+mysql_database.txt
+mysql_database.txt
+mysql_database.txt
+index.html
+
+*** File '* Startup Log *'
+Processing '/etc/joe/jpicorc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/jpicorc

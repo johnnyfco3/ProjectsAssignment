@@ -68,22 +68,9 @@
           <a class="button is-primary" href="login.html">
             Log in
           </a>
-
-          <a class="navbar-item" href="qa2.php">
-            Medicinal Plants
-          </a>
-        </div>
-
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary" href="login.html">
-                Log in
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
+    </div>
+</div>
     </nav>
   </div>
   <!--Main Content-->

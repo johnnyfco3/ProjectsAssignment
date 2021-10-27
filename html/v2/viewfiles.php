@@ -60,7 +60,7 @@ require_once "config.php";
       </a>
 
       <a class="navbar-item" href="qa2.php">
-        Medicinal Plants
+      Ask a Question
       </a>
     </div>
 </nav>
