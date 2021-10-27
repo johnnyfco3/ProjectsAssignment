@@ -41,7 +41,7 @@ error_reporting(0);
 
 <body>
   <!--Main content-->
-<div class="section">
+<div class="section" style="background-color: green;">
     <div class="card">
       <div class="card-content">
         <?php

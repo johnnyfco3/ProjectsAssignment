@@ -102,6 +102,9 @@ error_reporting(0);
           <a class="navbar-item" href="qa2.php">
             Ask a Question
           </a>
+          <a class="navbar-item" href="http://cs.newpaltz.edu/p/f21-11/v0/home.php">
+            Browse our Database
+          </a>
         </div>
 
         <div class="navbar-end">
@@ -117,7 +120,7 @@ error_reporting(0);
     </nav>
   </div>
   <!--Main Content-->
-  <section class="hero is-success">
+  <section class="hero" style="text-align:center;">
     <div class="hero-body">
       <p class="title">
         Question & Answer
@@ -125,8 +128,8 @@ error_reporting(0);
       </p>
 
       <p class="subtitle">
-        Ask a question about plants!
-        <img id="gif" src="../files/animations/prethinking.gif" width="100" height="100">
+         Ask a question about plants!
+        <img id="gif" src="../files/animations/prethinking.gif" width="100" height="100" style="float:right;">
 
 
       </p>
