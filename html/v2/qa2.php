@@ -123,17 +123,13 @@ error_reporting(0);
   <section class="hero" style="text-align:center;">
     <div class="hero-body">
       <p class="title">
-        Question & Answer
+        Ask Mr. Wise your Question about Plants
         <i class="fas fa-seedling fa-1x"></i>
       </p>
 
       <p class="subtitle">
-         Ask a question about plants!
-        <img id="gif" src="../files/animations/prethinking.gif" width="100" height="100" style="float:right;">
-
-
+        <img id="gif" src="../files/animations/prethinking.gif" width="100" height="100">
       </p>
-
 
     </div>
   </section>
