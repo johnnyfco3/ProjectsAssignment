@@ -1,0 +1,68 @@
+{
+  "startPage": 17,
+  "lastPage": 125,
+  "columns": {
+    "Traditional_use_by_the_herbal_healer_of_Bolipara": [
+      "Traditional use by the herbal healer of Bolipara", 
+      "split"
+    ],
+    "Other_uses": [
+      "Other uses",
+      "split"
+    ],
+    "Medicinal_use": [
+      "Medicinal use",
+      "split"
+    ],
+    "Chemical_constituents": [
+      "Chemical constituents",
+      "split"
+    ],
+    "Regeneration": [
+      "Regeneration",
+      "split"
+    ],
+    "Phenological_characters": [
+      "Phenological characters",
+      "split"
+    ],
+    "Silvicultural_characteristics": [
+      "Silvicultural characteristics",
+      "split"
+    ],
+    "Physiographic,_edaphic_and_biotic_requirements": [
+      "Physiographic, edaphic and biotic requirements",
+      "split"
+    ],
+    "Distribution": [
+      "Distribution", 
+      "split"
+    ],
+    "General_description": [
+      "General description",
+      "split"
+    ],
+    "Vernacular_name": [
+      "Vernacular name",
+      "split"
+    ],
+    "Bengali_name": [
+      "Bengali name",
+      "split"
+    ],
+    "Synonym": [
+      "Synonym",
+      "split"
+    ],
+    "Familt": [
+      "Family",
+      "split"
+    ],
+    "Plant_Name": ["(?<=\\d)(\\D+)", "search"],
+    "Plant_Number": ["(\\d+)", "search"]
+  },
+  "pictures": {
+    "startPage": 18,
+    "lastPage": 123
+  }
+}
