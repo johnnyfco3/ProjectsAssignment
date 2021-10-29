@@ -96,21 +96,20 @@ error_reporting(0);
               $result = mysqli_query($link, $sql);
 
         ?>
-              <div class="columns" style="border-style:inset;border-width:10px;border-color:brown;">
+              <div class="columns">
                 <div class="column">
 
-                  <div class="hero" style="background-color:burlywood;">
-                    <div class="hero-body">
-                      <div class="title">Here is information on plants from a PDF document about <?php echo "$value" ?></div>
-                    </div>
-                  </div>
-
+                
 
 
                   <?php
 
                   if ($queryResults = mysqli_num_rows($result)) {
+
+                    echo $value;
                     while ($row = mysqli_fetch_array($result)) {
+                   
+                      
 
                   ?>
                       <li style="border-style:inset;border-width:10px;border-color:lightgreen">
@@ -129,11 +128,7 @@ error_reporting(0);
                 
                 <div class="column">
 
-                  <div class="hero" style="background-color:burlywood;">
-                    <div class="hero-body">
-                      <div class="title">Here is Web crawler Information based on <?php echo "$value" ?></div>
-                    </div>
-                  </div>
+             
                   <section style="border-style:double;border-width:10px;border-color:lightgreen;">
               <?php
 
@@ -169,14 +164,10 @@ error_reporting(0);
               $result = mysqli_query($link, $sql);
 
         ?>
-              <div class="columns" style="border-style:inset;border-width:10px;border-color:brown;">
+              <div class="columns" >
                 <div class="column">
 
-                  <div class="hero" style="background-color:burlywood;">
-                    <div class="hero-body">
-                      <div class="title">Here is information on plants from a PDF document about <?php echo "$value" ?></div>
-                    </div>
-                  </div>
+                 
                   <?php
 
                   if ($queryResults = mysqli_num_rows($result)) {
@@ -199,11 +190,7 @@ error_reporting(0);
                 
                 <div class="column">
 
-                  <div class="hero" style="background-color:burlywood;">
-                    <div class="hero-body">
-                      <div class="title">Here is Web crawler Information based on <?php echo "$value" ?></div>
-                    </div>
-                  </div>
+                
                   <section style="border-style:double;border-width:10px;border-color:lightgreen;">
               <?php
 
@@ -239,14 +226,10 @@ error_reporting(0);
               $result = mysqli_query($link, $sql);
 
         ?>
-              <div class="columns" style="border-style:inset;border-width:10px;border-color:brown;">
+              <div class="columns">
                 <div class="column">
 
-                  <div class="hero" style="background-color:burlywood;">
-                    <div class="hero-body">
-                      <div class="title">Here is information on plants from a PDF document about <?php echo "$value" ?></div>
-                    </div>
-                  </div>
+ 
                   <?php
 
                   if ($queryResults = mysqli_num_rows($result)) {
@@ -269,11 +252,7 @@ error_reporting(0);
                 
                 <div class="column">
 
-                  <div class="hero" style="background-color:burlywood;">
-                    <div class="hero-body">
-                      <div class="title">Here is Web crawler Information based on <?php echo "$value" ?></div>
-                    </div>
-                  </div>
+                 
                   <section style="border-style:double;border-width:10px;border-color:lightgreen;">
               <?php
 
