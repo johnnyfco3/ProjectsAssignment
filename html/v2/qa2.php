@@ -136,7 +136,7 @@ error_reporting(0);
   <br>
 
   <div class="field">
-    <form id="searchform" action="result2.php" method="get" class="container-fluid" onsubmit="changeImage();">
+    <form id="searchform" action="normalviewdraft.php" method="get" class="container-fluid" onsubmit="changeImage();">
       <div class="searchbar">
         <i class="far fa-lightbulb fa-2x"></i>
         <i class="fas fa-grin-alt fa-2x fa-flip"></i>

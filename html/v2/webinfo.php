@@ -79,10 +79,8 @@
         <h1 class="banner" style="background-color:lightgreen">Web Information</h1>
 
         <section style="border-style: double;border-color:green;border-width:10px;font-size: 20px;">
-        <?php
-        echo file_get_contents("../files/a-web/fullanswer.txt");
-        echo "<p>";
-        ?>
+        <iframe src="../files/a-web/fullanswer.txt" style="width:100%; height: 900px;">
+    </iframe>
         </section>
 
         <script src="https://unpkg.com/vue@next"></script>

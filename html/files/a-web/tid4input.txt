@@ -8,7 +8,7 @@ Here are some common medicinal herbs. Most herbs have not been completely tested
       is used as a tea or applied as a compress. It is considered safe by the FDA. It may
       increase drowsiness caused by medicines or other herbs or supplements. Chamomile may
       interfere with the way the body uses some medicines, causing too high a level of the
-      medicine in some people.Chamomile for the skin (topical) may be used to treat skin irritation from radiation
+      medicine in some people. Chamomile for the skin (topical) may be used to treat skin irritation from radiation
       cancer treatments. Chamomile in capsule form may be used to control vomiting during
       chemotherapy.(Leaf, stalk, root)Echinacea is commonly used to treat or prevent colds, flu, and infections, and for
       wound healing. Many studies have looked at how well echinacea works to prevent or
@@ -55,7 +55,7 @@ Here are some common medicinal herbs. Most herbs have not been completely tested
       the growth of cancer cells. Milk thistle is a plant that originated in the Mediterranean
       region. It has been used for many different illnesses over the last several thousand
       years, especially liver problems. Study results are uncertain about the actual benefits
-      of milk thistle for liver disease.(Flower, leaf)Saint John's wort is used as an antidepressant. Studies have shown that it has a small
+      of milk thistle for liver disease. (Flower, leaf)Saint John's wort is used as an antidepressant. Studies have shown that it has a small
       effect on mild to moderate depression over a period of about 12 weeks. But it is not
       clear if it is effective for severe depression. A side effect is sensitivity to light,
       but this is only noted in people taking large doses of the herb. St. John's has been
