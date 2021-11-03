@@ -2,10 +2,12 @@ from PyPDF2 import PdfFileReader
 import slate3k as slate
 
 # open the PDF file
-pdfFile = open('medicinal_plant_11_book.pdf', 'rb')
+pdfFile = open('KnowledgeBaseReader/Medicinal_Plants_of_North_America.pdf', 'rb')
 
 # create PDFFileReader object to read the file
-pdfReader = PdfFileReader(pdfFile)
+pdfReader = PdfFileReader(pdfFile, strict=False)
+
+
 
 print("PDF File name: " + str(pdfReader.getDocumentInfo().title))
 print("PDF File created by: " + str(pdfReader.getDocumentInfo().creator))
