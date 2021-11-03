@@ -2,10 +2,10 @@ from PyPDF2 import PdfFileReader
 import slate3k as slate
 
 # open the PDF file
-pdfFile = open('KnowledgeBaseReader/Medicinal_Plants_of_North_America.pdf', 'rb')
+pdfFile = open('html/files/books/Medicinal-Plants-of-North-America.pdf', 'rb')
 
 # create PDFFileReader object to read the file
-pdfReader = PdfFileReader(pdfFile, strict=False)
+pdfReader = PdfFileReader(pdfFile)
 
 
 
