@@ -45,7 +45,7 @@ numOfPages = pdfReader.getNumPages()
 debug = False
 i = pdf_format['startPage']
 img_page_diff = pdf_format['pictures']['startPage'] - pdf_format['startPage']
-with open ('KnowledgeBaseReader/11_book.txt', mode = "w", encoding = "utf-8") as output_file:
+with open ('html/files/a-db/11_book.txt', mode = "w", encoding = "utf-8") as output_file:
     #does not write anything into text file
     while i < pdf_format['lastPage'] :
         pageObj = pdfReader.getPage(i)
