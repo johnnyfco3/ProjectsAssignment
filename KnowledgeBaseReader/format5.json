@@ -1,0 +1,66 @@
+{
+    "startPage": 11,
+    "lastPage": 242,
+    "columns": {
+      "Bioactivities": [
+        "Bioactivities|Bioactivity",
+        "split"
+      ],
+      "Qualitative_and_quantitative_standards": [
+        "Qualitative and quantitative standards", 
+        "split"
+      ],
+      "Qualitative_and_quantitative_assays": [
+        "Qualitative and quantitative assays", 
+        "split"
+      ],
+      "Chemical_constituents": [
+        "Chemical constituents", 
+        "split"
+      ],
+      "Microscopic_characteristics": [
+        "Microscopic characteristics", 
+        "split"
+      ],
+      "Traditional_uses": [
+        "Traditional Uses",
+        "split"
+      ],
+      "Parts_used": [
+        "Parts used",
+        "split"
+      ],
+      "Habitat": [
+        "Habitat",   
+        "split"
+      ],
+      "Distribution": [
+        "Distribution",
+        "split"
+      ],
+      "Description": [
+        "Description",
+        "split"
+      ],
+      "Synonym": [
+        "Synonym",
+        "split"
+      ],
+      "English_Name": [
+        "English name",
+        "split"
+      ],
+      "Tibetan_Name": [
+        "Tibetan name", 
+        "split"
+      ],
+      "Mongolian_Name": [
+        "Mongolian name", 
+        "split"
+      ]
+    },
+    "pictures": {
+      "startPage": 10,
+      "lastPage": 243
+    }
+  }

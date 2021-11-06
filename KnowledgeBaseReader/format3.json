@@ -1,0 +1,43 @@
+{
+    "startPage": 16,
+    "lastPage": 316,
+    "columns": {
+      "Dosage": [
+        "Dosage", 
+        "split"
+      ],
+      "Indications": [
+        "Indications",
+        "split"
+      ],
+      "Distribution": [
+        "Distribution|Dislribwion|DislrihlllioJ1|Dislribution|Dislriblllion|Distribwion|Distrib1ltion|Dislribllfion|Distriburion|Disiriblilion|Disrriblllion|Dislribulion|Dislribuliqn|Distrihlltion|DislribUlion|Dislribllliof1",
+        "split"
+      ],
+      "Habitat": [
+        "Habitat|Habital|Habilal|Habiw|/-Iabita!|/-Iobilal|Habilat|Hahitat|Habilal|J-/abiwl|Habilat|Habi/al|Hahitat|Hahirat|/-Iabitat|HabitOi|HabiwI",   
+        "split"
+      ],
+      "Description": [
+        "Description|Descriplion|Descripliol1|Descriprion|DiJ'lribulion",
+        "split"
+      ],
+      "Parts_used": [
+        "Parts used|Paris lIsed|PariS used|Paris lIsed|Paris used|ParIs used|Parts lIsed|PQrlS used|Pans lIsed|ParIS IIsed|ParIs used|PariS lIsed|ParIS used|Po,.ts lIsed|Parts IIsed|Paris lIsed|Parts IIsed|Pal'ls used|ParIs l/sed",
+        "split"
+      ],
+      "English_Name": [
+        "English name|English N\name|English ame|English arne",
+        "split"
+      ],
+      "Chinese_name": [
+        "Chinese name", 
+        "split"
+      ],
+      "Plant_Name": ["(?<=\\d)(\\D+)", "search"]
+    },
+    "pictures": {
+      "startPage": 15,
+      "lastPage": 317
+    }
+  }

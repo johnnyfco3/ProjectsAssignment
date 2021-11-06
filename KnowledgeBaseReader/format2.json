@@ -1,68 +1,47 @@
 {
-  "startPage": 17,
-  "lastPage": 125,
+  "startPage": 14,
+  "lastPage": 314,
   "columns": {
-    "Traditional_use_by_the_herbal_healer_of_Bolipara": [
-      "Traditional use by the herbal healer of Bolipara", 
+    "Chemical_Components": [
+      "Chemical Components|Chemical components|Chemical componenls|Chemical component!|Chemical compollents|Chemical compollellts|Chemical componellls|Chemical companellls|Chemical compoJ1ents|Chemical compollenrs|Chemical componel1ls|Chemical compollents|Chemical compollenls|Chemical componems|Chi!lIIico/ COlllpOl1eHlJ|Chemical componenls|Chemical componell/s", 
       "split"
     ],
-    "Other_uses": [
-      "Other uses",
-      "split"
-    ],
-    "Medicinal_use": [
-      "Medicinal use",
-      "split"
-    ],
-    "Chemical_constituents": [
-      "Chemical constituents",
-      "split"
-    ],
-    "Regeneration": [
-      "Regeneration",
-      "split"
-    ],
-    "Phenological_characters": [
-      "Phenological characters",
-      "split"
-    ],
-    "Silvicultural_characteristics": [
-      "Silvicultural characteristics",
-      "split"
-    ],
-    "Physiographic,_edaphic_and_biotic_requirements": [
-      "Physiographic, edaphic and biotic requirements",
+    "Bio_Activities": [
+      "Bio-Activities|BiD-Activities|Bio-Aclivilies|Bio-Acli\\'ilies|Bio-Aclivities|Bia-Activities|Bio-Acrivities|Bio-Activilies|Bio-Activitie|Bio-ACfivities|Bio-Acliviries|Bio-Ac/ivilies|Bio¬∑AC:lil'ilies|Biu-Activities|Bia-Actidries|Bio-.¬∑kl il'il ie.\\|Bio-Actil¬∑ities",
       "split"
     ],
     "Distribution": [
-      "Distribution", 
+      "Distribution|Dislribwion|DislrihlllioJ1|Dislribution|Dislriblllion|Distribwion|Distrib1ltion|Dislribllfion|Distriburion|Disiriblilion|Disrriblllion|Dislribulion|Dislribuliqn|Distrihlltion|DislribUlion|Di.\\¬∑triblllion|Dislribllliof1",
       "split"
     ],
-    "General_description": [
-      "General description",
+    "Habitat": [
+      "Habitat|Habital|Habilal|Habiw|/-Iabita!|/-Iobilal|Habilat|Hahitat|Habilal|J-/abiwl|Habilat|Habi/al|Hahitat|Hahirat|/-Iabitat|HabitOi|'-/abital|HabiwI",   
       "split"
     ],
-    "Vernacular_name": [
-      "Vernacular name",
+    "Description": [
+      "Description|Descriplion|Descripliol1|Descriprion|DiJ'lribulion",
       "split"
     ],
-    "Bengali_name": [
-      "Bengali name",
+    "Traditional_uses": [
+      "Traditional uses|Tradilionaluses|Traditional u \nses|TrndilionolllJes|Traditionailises|Traditiona/uses|Traditionaillses|Tradilionaluses|Tradiliona/uses|Trad.itionol u \nses|Traditionallises|Traditionalilses|Tradilionallises|Traditionalllses|Traditional llses|Tradilionaluses|Tradifionaluses|TraditiolJallises|Traditianaillses",
       "split"
     ],
-    "Synonym": [
-      "Synonym",
+    "Parts_used": [
+      "Parts used|Paris lIsed|PariS used|Paris lIsed|Paris used|ParIs used|Parts lIsed|PQrlS used|Pans lIsed|ParIS IIsed|ParIs used|PariS lIsed|ParIS used|Part.\\' u.\\'ed|Po,.ts lIsed|Parts IIsed|Paris lIsed|Parts IIsed|Pal'ls used|ParIs l/sed",
       "split"
     ],
-    "Family": [
-      "Family",
+    "English_Name": [
+      "English Name|English N \name|English ame|English arne",
       "split"
     ],
-    "Plant_Name": ["(?<=\\d)(\\D+)", "search"],
-    "Plant_Number": ["(\\d+)", "search"]
+    "Korean_Name": [
+      "Korean Name|Korean Namc|Korean arne|Korean ame|Korean N \name|Korean 'arne|Kore.n Name", 
+      "split"
+    ],
+    "Plant_Name": ["(?<=\\d)(\\D+)", "search"]
   },
   "pictures": {
-    "startPage": 18,
-    "lastPage": 123
+    "startPage": 13,
+    "lastPage": 315
   }
 }
