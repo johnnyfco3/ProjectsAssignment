@@ -49,7 +49,7 @@ error_reporting(0);
   }
 
   .field {
-    border-style: groove;
+    
     border-width: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -79,7 +79,7 @@ error_reporting(0);
   </style>
 </head>
 
-<body>
+<body style="background-color:lightgreen">
   <!--Navbar-->
   <div class="nav">
     <nav class="navbar is-link" role="navigation" aria-label="main navigation">
@@ -120,7 +120,7 @@ error_reporting(0);
     </nav>
   </div>
   <!--Main Content-->
-  <section class="hero" style="text-align:center;">
+  <section class="hero" style="text-align:center; background-color:white">
     <div class="hero-body">
       <p class="title">
         Ask Mr. Wise your Question about Plants
@@ -135,14 +135,12 @@ error_reporting(0);
   </section>
   <br>
 
-  <div class="field">
+  <div class="field" style="background-color:lightgreen">
     <form id="searchform" action="normalviewdraft.php" method="get" class="container-fluid" onsubmit="changeImage();">
       <div class="searchbar">
-        <i class="far fa-lightbulb fa-2x"></i>
-        <i class="fas fa-grin-alt fa-2x fa-flip"></i>
+      <i class="far fa-question-circle fa-3x" style="margin-right:5px;"></i>
         <input class="input is-rounded is centered" type="text" name="question" placeholder="Enter a question" style="padding-right:10px;">
         <button type="submit" name="search" class="button is-primary is-outlined is-rounded" onclick="changeImage();">Search</button>
-        <i class="fas fa-spinner fa-pulse fa-2x"></i>
       </div>
     </form>
   </div>

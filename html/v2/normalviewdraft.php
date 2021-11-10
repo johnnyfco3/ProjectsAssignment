@@ -2,15 +2,14 @@
 #require "config.php";
 include "qa2.php";
 include "removeCommonWords.php";
-include "../cgi-bin/v1-web/extractkey.py ";
 error_reporting(0);
 ?>
 <!DOCTYPE html>
 <style>
   .bodyfont{
-    font-family: 'Cinzel', serif;
+    font-family: 'Merriweather', serif;
     font-size: 20px;
-
+   
   }
   .navbar-brand {
     font-size: 25px;
@@ -40,27 +39,17 @@ error_reporting(0);
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
 </head>
 
-<body class="bodyfont">
+<body>
   <!--Main content-->
-  <div class="tabs is-toggle is-fullwidth is-large">
-  <ul>
-    <li class="is-active">
-    <a>
-        <span>Normal View</span>
-      </a>
-    </li>
-    <li>
-      <a href="academicviewdraft.php">
-        <span>Academic View</span>
-      </a>
-</li>
-  </ul>
-</div>
-<div style="font-weight: bold;" >Here are the plants associated with your question
-                        </div>
+  <div class="bodyfont" style="background-color: lightgreen";>
+  
+
+<div style="padding-left: 50px;padding-right: 50px">
+
+
         <?php
         if (isset($_GET['search'])) {
           //writing the question to a file.txt
@@ -72,6 +61,7 @@ error_reporting(0);
           $outfile4 = fopen("../files/a-db/plants.txt", "w");
           $questionkey = removeCommonWords($questiontxt); //removes common words in input that are lower case
           $questionkey = removeCommonWords(strtolower($questionkey)); //in case user inputs an upper case word
+
           fwrite($outfile, $questionkey);
           $questionkey2 = ucwords($questionkey);  //first character in all words capitalized
           fwrite($outfile2, $questionkey2);
@@ -102,6 +92,12 @@ error_reporting(0);
             //$parts = explode(', ', $line_of_text);
             //print_r($parts);
             ?> <!--<hr>--> <?php
+            ?>
+
+            <div style="font-weight: bold" >Here are the plants associated with  <?php echo file_get_contents("../files/a-db/keyword.txt"); ?>
+                        </div><?php 
+
+            
             foreach ($stringArray as &$value) {
       
           $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_Composition REGEXP '[[:<:]]${value}[[:>:]]'
@@ -120,9 +116,33 @@ error_reporting(0);
 
                   } 
                   }
-                  ?>
-                  
-                <?php
+                  $sql1 = "SELECT * FROM book2 WHERE Chemical_Components REGEXP '[[:<:]]${value}[[:>:]]' OR Bio_Activities REGEXP '[[:<:]]${value}[[:>:]]'
+                  OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
+                  OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
+                  Korean_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+                    
+                  $result1 = mysqli_query($link, $sql1);
+            
+                  if ($queryResults = mysqli_num_rows($result1)) {
+                     while ($row = mysqli_fetch_array($result1)) {
+            
+                          echo "<a href='#?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                    } 
+                }
+    
+                $sql2 = "SELECT * FROM book3 WHERE Dosage REGEXP '[[:<:]]${value}[[:>:]]' OR Indications REGEXP '[[:<:]]${value}[[:>:]]'
+                  OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
+                  OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
+                  Chinese_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+
+                  $result2 = mysqli_query($link, $sql2);
+            
+                  if ($queryResults = mysqli_num_rows($result2)) {
+                     while ($row = mysqli_fetch_array($result2)) {
+            
+                          echo "<a href='#?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                    } 
+                }
             }
           }
           fclose($file_handle);
@@ -152,6 +172,34 @@ error_reporting(0);
                       echo "<a href='dbanswer.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
                     } 
                   }
+                
+              $sql1 = "SELECT * FROM book2 WHERE Chemical_Components REGEXP '[[:<:]]${value}[[:>:]]' OR Bio_Activities REGEXP '[[:<:]]${value}[[:>:]]'
+              OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
+              OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
+              Korean_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+        
+              $result1 = mysqli_query($link, $sql1);
+        
+              if ($queryResults = mysqli_num_rows($result1)) {
+                 while ($row = mysqli_fetch_array($result1)) {
+        
+                      echo "<a href='#?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                } 
+            }
+
+            $sql2 = "SELECT * FROM book3 WHERE Dosage REGEXP '[[:<:]]${value}[[:>:]]' OR Indications REGEXP '[[:<:]]${value}[[:>:]]'
+              OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
+              OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
+              Chinese_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+        
+              $result2 = mysqli_query($link, $sql2);
+        
+              if ($queryResults = mysqli_num_rows($result2)) {
+                 while ($row = mysqli_fetch_array($result2)) {
+        
+                      echo "<a href='#?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                } 
+            }
                   
             }
           }
@@ -183,6 +231,33 @@ error_reporting(0);
                       echo "<a href='dbanswer.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
                     } 
                   }
+                  $sql1 = "SELECT * FROM book2 WHERE Chemical_Components REGEXP '[[:<:]]${value}[[:>:]]' OR Bio_Activities REGEXP '[[:<:]]${value}[[:>:]]'
+                  OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
+                  OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
+                  Korean_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+            
+                  $result1 = mysqli_query($link, $sql1);
+            
+                  if ($queryResults = mysqli_num_rows($result1)) {
+                     while ($row = mysqli_fetch_array($result1)) {
+            
+                          echo "<a href='#?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                    } 
+                }
+    
+                $sql2 = "SELECT * FROM book3 WHERE Dosage REGEXP '[[:<:]]${value}[[:>:]]' OR Indications REGEXP '[[:<:]]${value}[[:>:]]'
+                  OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
+                  OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
+                  Chinese_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+            
+                  $result2 = mysqli_query($link, $sql2);
+            
+                  if ($queryResults = mysqli_num_rows($result2)) {
+                     while ($row = mysqli_fetch_array($result2)) {
+            
+                          echo "<a href='#?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                    } 
+                }
                   
             }
           }
@@ -194,19 +269,18 @@ error_reporting(0);
                  
           shell_exec("python ../cgi-bin/v1-web/close.py");
           $file_handle = fopen("../files/a-db/keyword.txt", "rb");
-          shell_exec("python ../cgi-bin/v1-web/open.py");
           ?>
           <hr>
           
-          <div style="font-weight:bold;">Here is web information concerning your question
-                      </div>
-          <?php
+          <div style="font-weight: bold" >Here is Web information associated with <?php echo file_get_contents("../files/a-db/keyword.txt"); ?>
+                        </div><?php 
+        
           while (!feof($file_handle)) {
             $line_of_text = fgets($file_handle);
             foreach ($stringArray as &$value) {
 
                       //echo "<br>";
-                      echo shell_exec("python ../cgi-bin/v1-web/extractkey.py ${value}");           
+                      echo shell_exec("python ../cgi-bin/v1-web/extractkey2.py ${value}");           
                   }
             }
           fclose($file_handle);
@@ -216,7 +290,7 @@ error_reporting(0);
             $line_of_text = fgets($file_handle2);         
             foreach ($stringArray2 as &$value) {
                       echo "<br>";
-                      echo shell_exec("python ../cgi-bin/v1-web/extractkey.py ${value}");           
+                      echo shell_exec("python ../cgi-bin/v1-web/extractkey2.py ${value}");           
                   }
                   
             }
@@ -228,7 +302,7 @@ error_reporting(0);
                   
             foreach ($stringArray3 as &$value) { 
                       echo "<br>";
-                      echo shell_exec("python ../cgi-bin/v1-web/extractkey.py ${value}");   
+                      echo shell_exec("python ../cgi-bin/v1-web/extractkey2.py ${value}");   
             }
           }
           fclose($file_handle3);
@@ -253,7 +327,23 @@ error_reporting(0);
           }
         }
         ?>
-          
+          </div>
+          <hr>
+          <div class="tabs is-toggle is-fullwidth is-large">
+  <ul>
+    <li class="is-active">
+    <a>
+        <span>Normal View</span>
+      </a>
+    </li>
+    <li>
+      <a href="academicviewdraft2.php">
+        <span>Academic View</span>
+      </a>
+</li>
+  </ul>
+</div>
+      </div>
 </body>
 
 </html>

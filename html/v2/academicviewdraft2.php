@@ -27,6 +27,14 @@ error_reporting(0);
   .media-content p {
     text-align: center;
   }
+  .columns{
+    font-family: 'Merriweather', serif;
+    font-size: 25px;
+   
+  }
+  a{
+    
+  }
 </style>
 <html lang="en">
 
@@ -41,32 +49,17 @@ error_reporting(0);
 
 <body>
   <!--Main content-->
-  <div class="tabs is-toggle is-fullwidth is-large">
-  <ul>
-    <li>
-    <a onclick="javascript:window.history.back(-1);return false;">
-        <span>Normal View</span>
-      </a>
-    </li>
-    <li class="is-active">
-      <a>
-        <span>Academic View</span>
-      </a>
-</li>
-  </ul>
-</div>
+  
 
-<div class="section" style="background-color: green;">
-    <div class="card">
+<div class="section">
+    <div style="background-color:lightgreen">
       <div class="card-content">
-      <div class="columns" style="border-style:inset;border-width:10px;border-color:brown;">
+      <div class="columns">
             <div class="column">
 
-                  <div class="hero" style="background-color:burlywood;">
-                    <div class="hero-body">
-                      <div class="title">Here are plants associated with your question </div>
-                    </div>
-                  </div>
+            <div style="font-weight: bold" >Here are the plants associated with  <?php echo file_get_contents("../files/a-db/keyword.txt"); ?>
+                        </div>
+                        <br>
         <?php
           //writing the question to a file.txt 
           $file_handle = fopen("../files/a-db/keyword.txt", "rb");
@@ -96,16 +89,58 @@ error_reporting(0);
                     while ($row = mysqli_fetch_array($result)) {
 
                   ?>
-                      <li style="border-style:inset;border-width:10px;border-color:lightgreen">
-                        <ul><?php echo "<a style='color:black;' href='dbanswer.php?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
+
+                    <li>
+                      
+                        <?php echo "<a style='color:black; ' href='dbanswer.php?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
                             ?>
-                        </ul>
-                      </li>
+                          
+                        
+                    </li>
+                    <br>
+                     
 
                   <?php } 
                   }
+                  $sql1 = "SELECT * FROM book2 WHERE Chemical_Components REGEXP '[[:<:]]${value}[[:>:]]' OR Bio_Activities REGEXP '[[:<:]]${value}[[:>:]]'
+              OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
+              OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
+              Korean_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+        
+              $result1 = mysqli_query($link, $sql1);
+        
+              if ($queryResults = mysqli_num_rows($result1)) {
+                 while ($row = mysqli_fetch_array($result1)) {
                   ?>
-                <?php
+                  <li>
+                    <?php echo "<a style='color:black;' href='#?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
+                        ?>
+                 
+                  </li>
+                  <br>
+
+              <?php } 
+              }
+
+            $sql2 = "SELECT * FROM book3 WHERE Dosage REGEXP '[[:<:]]${value}[[:>:]]' OR Indications REGEXP '[[:<:]]${value}[[:>:]]'
+              OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
+              OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
+              Chinese_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+        
+              $result2 = mysqli_query($link, $sql2);
+        
+              if ($queryResults = mysqli_num_rows($result2)) {
+                 while ($row = mysqli_fetch_array($result2)) {
+                  ?>
+                  <li>
+                   <?php echo "<a style='color:black;' href='#?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
+                        ?>
+                   
+                  </li>
+                  <br>
+
+              <?php } 
+              }
             }
           
           fclose($file_handle);
@@ -128,16 +163,55 @@ error_reporting(0);
                     while ($row = mysqli_fetch_array($result)) {
 
                   ?>
-                   <li style="border-style:inset;border-width:10px;border-color:lightgreen">
-                        <ul><?php echo "<a style='color:black;' href='dbanswer.php?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
+                   <li>
+                        <?php echo "<a style='color:black;' href='dbanswer.php?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
                             ?>
-                        </ul>
+                      
                       </li>
+                      <br>
 
                   <?php } 
                   }
+                  $sql1 = "SELECT * FROM book2 WHERE Chemical_Components REGEXP '[[:<:]]${value}[[:>:]]' OR Bio_Activities REGEXP '[[:<:]]${value}[[:>:]]'
+              OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
+              OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
+              Korean_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+        
+              $result1 = mysqli_query($link, $sql1);
+        
+              if ($queryResults = mysqli_num_rows($result1)) {
+                 while ($row = mysqli_fetch_array($result1)) {
                   ?>
-                <?php
+                  <li>
+                    <?php echo "<a style='color:black;' href='#?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
+                        ?>
+                   
+                  </li>
+                  <br>
+
+              <?php } 
+              }
+
+            $sql2 = "SELECT * FROM book3 WHERE Dosage REGEXP '[[:<:]]${value}[[:>:]]' OR Indications REGEXP '[[:<:]]${value}[[:>:]]'
+              OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
+              OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
+              Chinese_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+        
+              $result2 = mysqli_query($link, $sql2);
+        
+              if ($queryResults = mysqli_num_rows($result2)) {
+                 while ($row = mysqli_fetch_array($result2)) {
+                  ?>
+                  <li>
+                  <?php echo "<a style='color:black;' href='#?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
+                        ?>
+                  
+                  </li>
+                  <br>
+
+              <?php }
+              }
+                  
             }
           
           fclose($file_handle2);
@@ -160,16 +234,55 @@ error_reporting(0);
                     while ($row = mysqli_fetch_array($result)) {
 
                   ?>
-                   <li style="border-style:inset;border-width:10px;border-color:lightgreen">
-                        <ul><?php echo "<a style='color:black;' href='dbanswer.php?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
+                   <li>
+                        <?php echo "<a style='color:black;' href='dbanswer.php?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
                             ?>
-                        </ul>
+                        
                       </li>
+
+                      <br>
 
                   <?php } 
                   }
+                  $sql1 = "SELECT * FROM book2 WHERE Chemical_Components REGEXP '[[:<:]]${value}[[:>:]]' OR Bio_Activities REGEXP '[[:<:]]${value}[[:>:]]'
+              OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
+              OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
+              Korean_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+        
+              $result1 = mysqli_query($link, $sql1);
+        
+              if ($queryResults = mysqli_num_rows($result1)) {
+                 while ($row = mysqli_fetch_array($result1)) {
                   ?>
-                <?php
+                  <li>
+                    <?php echo "<a style='color:black;' href='#?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
+                        ?>
+                 
+                  </li>
+                  <br>
+
+              <?php } 
+              }
+
+            $sql2 = "SELECT * FROM book3 WHERE Dosage REGEXP '[[:<:]]${value}[[:>:]]' OR Indications REGEXP '[[:<:]]${value}[[:>:]]'
+              OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
+              OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
+              Chinese_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+        
+              $result2 = mysqli_query($link, $sql2);
+        
+              if ($queryResults = mysqli_num_rows($result2)) {
+                 while ($row = mysqli_fetch_array($result2)) {
+                  ?>
+                  <li>
+                 <?php echo "<a style='color:black;' href='#?ID=" . $row['ID'] . "'>" . $row['Plant_Name'] . "</a>";
+                        ?>
+              
+                  </li>
+                  <br>
+
+              <?php }
+              }
             }
           
           fclose($file_handle3);
@@ -177,11 +290,8 @@ error_reporting(0);
          </div>
          <div class="column">
 
-<div class="hero" style="background-color:burlywood;">
-  <div class="hero-body">
-    <div class="title">Here is Web crawler Information based on your Question</div>
-  </div>
-</div>
+         <div style="font-weight: bold" >Here is Webcrawler information associated with  <?php echo file_get_contents("../files/a-db/keyword.txt"); ?>
+                        </div>
     <?php 
           shell_exec("python ../cgi-bin/v1-web/close.py");
           $file_handle = fopen("../files/a-db/keyword.txt", "rb");
@@ -190,7 +300,7 @@ error_reporting(0);
             $line_of_text = fgets($file_handle);
           
             foreach ($stringArray as &$value) {?>
-                  <section style="border-style:double;border-width:10px;border-color:lightgreen;">
+                  <section>
               <?php
 
               echo "<br>";
@@ -207,7 +317,7 @@ error_reporting(0);
           while (!feof($file_handle2)) {          
             $line_of_text = fgets($file_handle2);         
             foreach ($stringArray2 as &$value) {?>
-                  <section style="border-style:double;border-width:10px;border-color:lightgreen;">
+                  <section>
               <?php
 
               echo "<br>";
@@ -224,7 +334,7 @@ error_reporting(0);
           while (!feof($file_handle3)) {          
             $line_of_text = fgets($file_handle3);
             foreach ($stringArray3 as &$value) { ?>
-                  <section style="border-style:double;border-width:10px;border-color:lightgreen;">
+                  <section>
               <?php
 
               echo "<br>";
@@ -238,6 +348,23 @@ error_reporting(0);
           
           fclose($file_handle3);
         ?>
+        </div>
+      </div>
+
+<div class="tabs is-toggle is-fullwidth is-large">
+  <ul>
+    <li>
+    <a onclick="javascript:window.history.back(-1);return false;">
+        <span>Normal View</span>
+      </a>
+    </li>
+    <li class="is-active">
+      <a>
+        <span>Academic View</span>
+      </a>
+</li>
+  </ul>
+</div>
     
 </body>
 

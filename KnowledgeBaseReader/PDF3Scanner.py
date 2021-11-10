@@ -20,7 +20,7 @@ with open('KnowledgeBaseReader/format3.json') as json_file:
     json_file.close()
 
 # create db table from info given in 
-table_name = "book-3"
+table_name = "book3"
 ddl = ""
 for col in pdf_format['columns']:
     ddl += "`{}` text,".format(col)
