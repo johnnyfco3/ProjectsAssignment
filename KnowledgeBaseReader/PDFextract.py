@@ -16,7 +16,7 @@ import PyPDF2
 import mysql.connector
 import re
 import os
-from dotenv import load_dotenv
+
 from dataSplitter import extractData  
 from pdf2jpg import pdf2jpg
 import json
@@ -24,7 +24,7 @@ import sys
 import argparse
 
 #get envir vars
-load_dotenv()
+
 
 #load command line args
 parser = argparse.ArgumentParser()
@@ -37,10 +37,14 @@ args = parser.parse_args()
 
 #create db cursor
 cnx = mysql.connector.connect(
-    host = "localhost",
-    user = "root",
-    password="",
-    database="DataTest"
+    user='root',
+    host='localhost',
+    password='',
+    database='name_db'
+    #below is the cs shared DB info. Will be used when software is ready
+    #USERNAME 'p_f21_11')
+    #PASSWORD 'vqesp5')
+    #DB_NAME 'p_f21_11_db')
     
 )
 
@@ -78,16 +82,16 @@ with open ('text_check.txt', mode = "w", encoding = "utf-8") as output_file:
         dataDict = extractData(text, pdf_format['columns'])
         
         if debug:
-            """
-            ~check for any None value in data Dict
+            
+            """ check for any None value in data Dict
             if yes
                 print page text
                 loop through all none values and ask to copy paste the identifier or just press enter
                     if string was added then add it to columns dict
                 save it to format.json
                 reload format.json     
-                rerun extractData 
-            """
+                rerun extractData """
+            
             debug_list = []
             print(debug_list)
             for col in dataDict:
