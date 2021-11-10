@@ -1,43 +1,38 @@
 {
-    "startPage": 16,
-    "lastPage": 316,
-    "columns": {
-      "Dosage": [
-        "Dosage|DosaKe|DOSGKe|Dosaf!.e|Do.W8e|Do.soRe|DosGRe", 
-        "split"
-      ],
+  "startPage": 16, 
+  "lastPage": 316, 
+  "columns": {
+    "Dosage": [
+      "Dosage|DosaKe|DOSGKe|Dosaf!.e|Do.W8e|Do.soRe|DosGRe", 
+      "split"
+      ], 
       "Indications": [
-        "Indications|Indicatiolls|Illdicariolls|Illdicatiolls|IndicaJiolls|Indicatio1l5|Indicatiolls|Indicoliolls|Indicotiolls|II/dicatiolls|/Ildicariolls|Idicatiolls|Illdications|Indicariolls|IndicGtions|IndicGriolls|illdicariolls|IndicOIions|IndicQtiofl|Ilidicotions|Indiealiolls|Illdico/iolls|IndicarioJ/s|II/dicatiol/s|IlIdicOliolls|Indic:at;olls|/Ildicariolls|Illdicaliolls",
+        "Indications|Indicatiolls|Illdicariolls|Illdicatiolls|IndicaJiolls|Indicatio1l5|Indicatiolls|Indicoliolls|Indicotiolls|II/dicatiolls|/Ildicariolls|Idicatiolls|Illdications|Indicariolls|IndicGtions|IndicGriolls|illdicariolls|IndicOIions|IndicQtiofl|Ilidicotions|Indiealiolls|Illdico/iolls|IndicarioJ/s|II/dicatiol/s|IlIdicOliolls|Indic:at;olls|/Ildicariolls|Illdicaliolls|IndicatioNs|Indicaliolls|Jndications|IndicariollJ|I\"dicatiolls|IndiCa/ions", 
         "split"
-      ],
+      ], 
       "Distribution": [
-        "Distribution|Distribwioll|DistribllliOIl|Distriblltioll|Distriblllioll|Disrributioll|Distrihution|Disfr;/JIl1;ol1|Distributioll|Distrihutioll|Dislriblllioll|Distributioll|DiJfrihution|Distriburioll|Distrihurioll|DisrriblUiol1|Distribllfioll|Distribwiofl|Distributiol/|Distrihllfioll|DistriblllioJ/|Dislributioll|Distl'ilJwioJl|DislriiJllfioll|DiSlrihll1ioll|DistribUTion|Distrihwion|Distribl/tion|Distriblllioll|Dislfi/JIIlio|Distriburion|Distributioll|Dislrihllfioll|Dislribwioll|DiSTribution|DislJ'iblllion|Dislrihllfiol1|Disfrihutioll|Distrihution|DistribuTion|Distribltfioll|Distr;bution|Di.w¬∑;burioll|Di.Hrihution|Dislriblllioli|Dislribflfion|Distriblltiol/|Disfrihutioll|DisTributioll|Distribllfiol/|Dis,riburiol1|DisTributioll|DislriiJllIioll|DislrihlHioll|DiSfrihurirm",
+        "Distribution|Distribwioll|DistribllliOIl|Distriblltioll|Distriblllioll|Disrributioll|Distrihution|Disfr;/JIl1;ol1|Distributioll|Distrihutioll|Dislriblllioll|Distributioll|DiJfrihution|Distriburioll|Distrihurioll|DisrriblUiol1|Distribllfioll|Distribwiofl|Distributiol/|Distrihllfioll|DistriblllioJ/|Dislributioll|Distl'ilJwioJl|DislriiJllfioll|DiSlrihll1ioll|DistribUTion|Distrihwion|Distribl/tion|Distriblllioll|Dislfi/JIIlio|Distriburion|Distributioll|Dislrihllfioll|Dislribwioll|DiSTribution|DislJ'iblllion|Dislrihllfiol1|Disfrihutioll|Distrihution|DistribuTion|Distribltfioll|Distr;bution|Di.w\u00ac\u2211;burioll|Di.Hrihution|Dislriblllioli|Dislribflfion|Distriblltiol/|Disfrihutioll|DisTributioll|Distribllfiol/|Dis,riburiol1|DisTributioll|DislriiJllIioll|DislrihlHioll|DiSfrihurirm|Dislrihwioll|Distribwioli|Distribwion|Disrribllfioll|Dislribltlioll|Disfribllfion|Di.w\u00b7;burioll|Distrib/{fion|Disrriblltioll|Disrriburioll|Dislribllliol1|DistribufioJl|Disrriblllion|Disrriblllioll|Disrribwiol1|Dislriblllion", 
         "split"
-      ],
+      ], 
       "Habitat": [
-        "Habitat|Hahita|Hahita!|Hahitaf|HalJitat|HabiTaT|Hobitar|Habirat|1¬∑labita!|Habiral|Habirar|Hahitat|HabitaT|Hahira!|HalJirar|HabiTat|HabifOl|Habiw/|Habital|J-/abitat|Hahira|Habirai|Habiwr|Habiwi|Habilol|Habilar",   
+        "Habitat|Hahita|Hahita!|Hahitaf|HalJitat|HabiTaT|Hobitar|Habirat|1\u00ac\u2211labita!|Habiral|Habirar|Hahitat|HabitaT|Hahira!|HalJirar|HabiTat|HabifOl|Habiw/|Habital|J-/abitat|Hahira|Habirai|Habiwr|Habiwi|Habilol|Habilar|f1abil{lt|1\u00b7labita!|Habitar", 
         "split"
-      ],
+      ], 
       "Description": [
-        "Description|Descriptiol/|DescriptioI/o|Descriptiol/|Descriptioll|Descriprioll|DescnjJlioll|DescripTion|Descriptiol1|Descriprioll|Descriptioll|Descriplioll|Descriptiol/|DescnjJlioll|Descr;pr;ol1|Descripriol/|DeslTiprion|Descriptio|Descriplion|De.<criplioll|DescripTiol/|Dl'scrip,ioll|Desc;ptioll",
-        "split"
+        "Description|Descriptiol/|DescriptioI/o|Descriptiol/|Descriptioll|Descriprioll|DescnjJlioll|DescripTion|Descriptiol1|Descriprioll|Descriptioll|Descriplioll|Descriptiol/|DescnjJlioll|Descr;pr;ol1|Descripriol/|DeslTiprion|Descriptio|Descriplion|De.<criplioll|DescripTiol/|Dl'scrip,ioll|Desc;ptioll|D{'scriptioll|Desc\";ptioll", 
+          "split"
       ],
       "Parts_used": [
-        "Parts used|Parts llsed|Parts uSNJ|PariS used|Paris used|Paris IIsed|ParIS IIsed|Parts lised|Parrs used|ParIS used|Parts IIsed|ParIs used|Pans used|Parts Ilsed|Parrs IIsed|Part!i used|Porls /lsed|Parts /lsed|Parts lised|ParTS used|Parrs I/sed|ParIS IIset/|ParlJ IIsed|Pans IIsed|Parn used|ParIS usn!",
+        "Parts used|Parts llsed|Parts uSNJ|PariS used|Paris used|Paris IIsed|ParIS IIsed|Parts lised|Parrs used|ParIS used|Parts IIsed|ParIs used|Pans used|Parts Ilsed|Parrs IIsed|Part!i used|Porls /lsed|Parts /lsed|Parts lised|ParTS used|Parrs I/sed|ParIS IIset/|ParlJ IIsed|Pans IIsed|Parn used|ParIS usn!|ParIs IIsed|Pam used|HINAMEDICINAL PLANTS IN C\\nHINA 107 S3|ParlS used|PartJ /lJed|Parts lIsed", 
         "split"
-      ],
-      "English_Name": [
-        "English name|English n\name|English n\n:.une|English n|English Ilame|English nilme",
+      ], 
+      "English_Name": ["English name|English n\name|English n\n:.une|English n|English Ilame|English nilme", 
         "split"
-      ],
+      ], 
       "Chinese_name": [
         "Chinese name|Chinese n\name", 
         "split"
-      ],
-      "Plant_Name": ["(?<=\\d)(\\D+)", "search"]
-    },
-    "pictures": {
-      "startPage": 15,
-      "lastPage": 317
-    }
-  }
+      ], 
+      "Plant_Name": ["(?<=\\d)(\\D+)|MEDICINAL PLANTS IN C|MEDICINAL PLANTS fN CHINA", "search"]
+      }, 
+      "pictures": {"startPage": 15, "lastPage": 317}}
