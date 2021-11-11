@@ -1,1 +1,63 @@
-{"startPage": 11, "lastPage": 242, "columns": {"Bioactivities": ["Bioactivities|Bioactivity", "split"], "Qualitative_and_quantitative_standards": ["Qualitative and quantitative standards|Qualitive and quantitative standards", "split"], "Qualitative_and_quantitative_assays": ["Qualitative and quantitative assays|Qualitative and quantitative assay\\n|Qualitive and quantitative assays|Qualitive and quantitative assay", "split"], "Chemical_constituents": ["Chemical constituents", "split"], "Microscopic_characteristics": ["Microscopic characteristics", "split"], "Traditional_uses": ["Traditional Uses|Traditional uses", "split"], "Parts_used": ["Parts used|Part used", "split"], "Habitat": ["Habitat", "split"], "Distribution": ["Distribution", "split"], "Description": ["Description", "split"], "Synonym": ["Synonym", "split"], "English_Name": ["English name|English nameLargehead Wormwood|NeshinEnglish nameDahurian Asparagus|DadrigEnglish name|English name Prostrate Gentian|English name Meadow Cranesbill|English name Ural Licorice|English name |English name |English name |DemaEnglish name |English name", "split"], "Tibetan_Name": ["Tibetan name|Tibetan name\\n|Tibetan name\\n|Tibetan name\\n|Tibetan name\\n|Tibetan name\\n|Tibetan name\\n|Tibetan name|ljTibetan name|Tibetan name\\n|Tibetan name\\n|Tibetan name\\n|Tibetan name", "split"], "Mongolian_Name": ["Mongolian name|WHOMongolian name|WHOWHOMongolian name\\n|.WHOWHOMongolian name\\n|Mongolian name\\n|Mongolian name\\n|Mongolian name\\n|Mongolian name\\n|useMongolian name|Mongolian name\\n|Mongolian name\\n|Mongolian name\\n|Mongolian name|Mongolian name", "split"]}, "pictures": {"startPage": 10, "lastPage": 243}}
+{
+    "startPage": 11, 
+    "lastPage": 242, 
+    "columns": {
+        "Bioactivities": [
+            "Bioactivities|Bioactivity", 
+            "split"
+        ], 
+        "Qualitative_and_quantitative_standards": [
+            "Qualitative and quantitative standards|Qualitive and quantitative standards", 
+            "split"
+        ], 
+        "Qualitative_and_quantitative_assays": [
+            "Qualitative and quantitative assays|Qualitative and quantitative assay\\n|Qualitive and quantitative assays|Qualitive and quantitative assay", 
+            "split"
+        ], 
+        "Chemical_constituents": [
+            "Chemical constituents", 
+            "split"
+        ], 
+        "Microscopic_characteristics": [
+            "Microscopic characteristics", 
+            "split"
+        ], 
+        "Traditional_uses": [
+            "Traditional Uses|Traditional uses", 
+            "split"
+        ], 
+        "Parts_used": [
+            "Parts used|Part used", 
+            "split"
+        ], 
+        "Habitat": [
+            "Habitat", 
+            "split"
+        ], 
+        "Distribution": [
+            "Distribution", 
+            "split"
+        ], 
+        "Description": [
+            "Description", 
+            "split"
+        ], 
+        "Synonym": [
+            "Synonym", 
+            "split"
+        ], 
+        "English_Name": [
+            "English name|English nameLargehead Wormwood|NeshinEnglish nameDahurian Asparagus|DadrigEnglish name|English name Prostrate Gentian|English name Meadow Cranesbill|English name Ural Licorice|English name |English name |English name |DemaEnglish name |English name", 
+            "split"
+        ], 
+        "Tibetan_Name": [
+            "Tibetan name|Tibetan name\\n", 
+            "split"
+        ], 
+        "Mongolian_Name": [
+            "Mongolian name|WHOMongolian name|WHOWHOMongolian name|.WHOWHOMongolian name|Mongolian name\\n|useMongolian name", 
+            "split"
+        ]
+    }, 
+    "pictures": {"startPage": 10, "lastPage": 243}
+}
