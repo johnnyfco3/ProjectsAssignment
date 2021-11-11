@@ -86,6 +86,10 @@ error_reporting(0);
           fclose($outfile3);
           fclose($myfile);  
           $file_handle = fopen("../files/a-db/keyword.txt", "rb");
+          $medplant = False;
+          $book2 = False;
+          $book3 = False;
+          $book5 = False;
 
           while (!feof($file_handle)) {
             $line_of_text = fgets($file_handle);
@@ -108,6 +112,7 @@ error_reporting(0);
               $result = mysqli_query($link, $sql);
 
                   if ($queryResults = mysqli_num_rows($result)) {
+                    $medplant = True;
 
                     //echo $value;
                     while ($row = mysqli_fetch_array($result)) {
@@ -116,7 +121,7 @@ error_reporting(0);
 
                   } 
                   }
-                  $sql1 = "SELECT * FROM book2 WHERE Chemical_Components REGEXP '[[:<:]]${value}[[:>:]]' OR Bio_Activities REGEXP '[[:<:]]${value}[[:>:]]'
+                  $sql1 = "SELECT * FROM book2_Medicinal_Plants_of_Korea WHERE Chemical_Components REGEXP '[[:<:]]${value}[[:>:]]' OR Bio_Activities REGEXP '[[:<:]]${value}[[:>:]]'
                   OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
                   OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
                   Korean_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
@@ -124,13 +129,14 @@ error_reporting(0);
                   $result1 = mysqli_query($link, $sql1);
             
                   if ($queryResults = mysqli_num_rows($result1)) {
+                    $book2 = True;
                      while ($row = mysqli_fetch_array($result1)) {
             
-                          echo "<a href='#?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                          echo "<a href='dbanswer2.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
                     } 
                 }
     
-                $sql2 = "SELECT * FROM book3 WHERE Dosage REGEXP '[[:<:]]${value}[[:>:]]' OR Indications REGEXP '[[:<:]]${value}[[:>:]]'
+                $sql2 = "SELECT * FROM book3_Medicinal_plants_in_China WHERE Dosage REGEXP '[[:<:]]${value}[[:>:]]' OR Indications REGEXP '[[:<:]]${value}[[:>:]]'
                   OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
                   OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
                   Chinese_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
@@ -138,9 +144,25 @@ error_reporting(0);
                   $result2 = mysqli_query($link, $sql2);
             
                   if ($queryResults = mysqli_num_rows($result2)) {
+                    $book3 = True;
                      while ($row = mysqli_fetch_array($result2)) {
             
-                          echo "<a href='#?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                          echo "<a href='dbanswer3.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                    } 
+                }
+                $sql3 = "SELECT * FROM book5_MEDICINAL_PLANTS_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Qualitative_and_quantitative_standards REGEXP '[[:<:]]${value}[[:>:]]'
+                  OR Qualitative_and_quantitative_assays REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' OR Microscopic_characteristics REGEXP '[[:<:]]${value}[[:>:]]' 
+                  OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]'
+                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR Synonym REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Tibetan_Name REGEXP '[[:<:]]${value}[[:>:]]'
+                  OR Mongolian_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+
+                  $result3 = mysqli_query($link, $sql3);
+            
+                  if ($queryResults = mysqli_num_rows($result3)) {
+                    $book5 = True;
+                     while ($row = mysqli_fetch_array($result3)) {
+            
+                          echo "<a href='dbanswer5.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['English_Name'] . "</a>,";
                     } 
                 }
             }
@@ -167,13 +189,14 @@ error_reporting(0);
               $result = mysqli_query($link, $sql);
 
                   if ($queryResults = mysqli_num_rows($result)) {
+                    $medplant = True;
                     while ($row = mysqli_fetch_array($result)) {
 
                       echo "<a href='dbanswer.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
                     } 
                   }
                 
-              $sql1 = "SELECT * FROM book2 WHERE Chemical_Components REGEXP '[[:<:]]${value}[[:>:]]' OR Bio_Activities REGEXP '[[:<:]]${value}[[:>:]]'
+              $sql1 = "SELECT * FROM book2_Medicinal_Plants_of_Korea WHERE Chemical_Components REGEXP '[[:<:]]${value}[[:>:]]' OR Bio_Activities REGEXP '[[:<:]]${value}[[:>:]]'
               OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
               OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
               Korean_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
@@ -181,13 +204,14 @@ error_reporting(0);
               $result1 = mysqli_query($link, $sql1);
         
               if ($queryResults = mysqli_num_rows($result1)) {
+                $book2 = True;
                  while ($row = mysqli_fetch_array($result1)) {
         
-                      echo "<a href='#?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                      echo "<a href='dbanswer2.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
                 } 
             }
 
-            $sql2 = "SELECT * FROM book3 WHERE Dosage REGEXP '[[:<:]]${value}[[:>:]]' OR Indications REGEXP '[[:<:]]${value}[[:>:]]'
+            $sql2 = "SELECT * FROM book3_Medicinal_plants_in_China WHERE Dosage REGEXP '[[:<:]]${value}[[:>:]]' OR Indications REGEXP '[[:<:]]${value}[[:>:]]'
               OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
               OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
               Chinese_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
@@ -195,11 +219,28 @@ error_reporting(0);
               $result2 = mysqli_query($link, $sql2);
         
               if ($queryResults = mysqli_num_rows($result2)) {
+                $book3 = True;
                  while ($row = mysqli_fetch_array($result2)) {
         
-                      echo "<a href='#?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                      echo "<a href='dbanswer3.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
                 } 
             }
+            $sql3 = "SELECT * FROM book5_MEDICINAL_PLANTS_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Qualitative_and_quantitative_standards REGEXP '[[:<:]]${value}[[:>:]]'
+                  OR Qualitative_and_quantitative_assays REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' OR Microscopic_characteristics REGEXP '[[:<:]]${value}[[:>:]]' 
+                  OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]'
+                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR Synonym REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Tibetan_Name REGEXP '[[:<:]]${value}[[:>:]]'
+                  OR Mongolian_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+
+                  $result3 = mysqli_query($link, $sql3);
+            
+                  if ($queryResults = mysqli_num_rows($result3)) {
+                    echo 'yooo';
+                    $book5 = True;
+                     while ($row = mysqli_fetch_array($result3)) {
+            
+                          echo "<a href='dbanswer5.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['English_Name'] . "</a>,";
+                    } 
+                }
                   
             }
           }
@@ -226,12 +267,13 @@ error_reporting(0);
 
 
                   if ($queryResults = mysqli_num_rows($result)) {
+                    $medplant = True;
                     while ($row = mysqli_fetch_array($result)) {
 
                       echo "<a href='dbanswer.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
                     } 
                   }
-                  $sql1 = "SELECT * FROM book2 WHERE Chemical_Components REGEXP '[[:<:]]${value}[[:>:]]' OR Bio_Activities REGEXP '[[:<:]]${value}[[:>:]]'
+                  $sql1 = "SELECT * FROM book2_Medicinal_Plants_of_Korea WHERE Chemical_Components REGEXP '[[:<:]]${value}[[:>:]]' OR Bio_Activities REGEXP '[[:<:]]${value}[[:>:]]'
                   OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
                   OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
                   Korean_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
@@ -239,13 +281,14 @@ error_reporting(0);
                   $result1 = mysqli_query($link, $sql1);
             
                   if ($queryResults = mysqli_num_rows($result1)) {
+                    $book2 = True;
                      while ($row = mysqli_fetch_array($result1)) {
             
-                          echo "<a href='#?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                          echo "<a href='dbanswer2.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
                     } 
                 }
     
-                $sql2 = "SELECT * FROM book3 WHERE Dosage REGEXP '[[:<:]]${value}[[:>:]]' OR Indications REGEXP '[[:<:]]${value}[[:>:]]'
+                $sql2 = "SELECT * FROM book3_Medicinal_plants_in_China WHERE Dosage REGEXP '[[:<:]]${value}[[:>:]]' OR Indications REGEXP '[[:<:]]${value}[[:>:]]'
                   OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Description REGEXP '[[:<:]]${value}[[:>:]]' 
                   OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR
                   Chinese_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
@@ -253,9 +296,25 @@ error_reporting(0);
                   $result2 = mysqli_query($link, $sql2);
             
                   if ($queryResults = mysqli_num_rows($result2)) {
+                    $book3 = True;
                      while ($row = mysqli_fetch_array($result2)) {
             
-                          echo "<a href='#?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                          echo "<a href='dbanswer3.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                    } 
+                }
+                $sql3 = "SELECT * FROM book5_MEDICINAL_PLANTS_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Qualitative_and_quantitative_standards REGEXP '[[:<:]]${value}[[:>:]]'
+                  OR Qualitative_and_quantitative_assays REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' OR Microscopic_characteristics REGEXP '[[:<:]]${value}[[:>:]]' 
+                  OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]'
+                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR Synonym REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Tibetan_Name REGEXP '[[:<:]]${value}[[:>:]]'
+                  OR Mongolian_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+
+                  $result3 = mysqli_query($link, $sql3);
+            
+                  if ($queryResults = mysqli_num_rows($result3)) {
+                    $book5 = True;
+                     while ($row = mysqli_fetch_array($result3)) {
+            
+                          echo "<a href='dbanswer5.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['English_Name'] . "</a>,";
                     } 
                 }
                   
@@ -326,24 +385,48 @@ error_reporting(0);
           <?php
           }
         }
+
+        if($medplant == True){
+          $bookFiles = array_diff(scandir($directory), array('..', '.'));  
+          $PDFPrep = '../files/books/Medplant.pdf';
+          $fileDirectory = $directory. $bookFiles;
+          $PDFDirectory = $PDFPrep . $files;
+          echo "<br><a href='{$PDFDirectory}'>book1-Medicinal plants in Viet Nam.pdf<a><br>";
+        }
+        if($book2 == True){
+          $bookFiles = array_diff(scandir($directory), array('..', '.'));  
+          $PDFPrep = '../files/books/book2_Medicinal_Plants_of_Korea.pdf';
+          $fileDirectory = $directory. $bookFiles;
+          $PDFDirectory = $PDFPrep . $files;
+          echo "<br><a href='{$PDFDirectory}'>book2_Medicinal_Plants_of_Korea.pdf<a><br>";
+        }
+        if($book3 == True){
+          $bookFiles = array_diff(scandir($directory), array('..', '.'));  
+          $PDFPrep = '../files/books/book3_Medicinal_plants_in_China.pdf';
+          $fileDirectory = $directory. $bookFiles;
+          $PDFDirectory = $PDFPrep . $files;
+          echo "<br><a href='{$PDFDirectory}'>book3_Medicinal_plants_in_China.pdf<a><br>";
+        }
+        if($book5 == True){
+          $bookFiles = array_diff(scandir($directory), array('..', '.'));  
+          $PDFPrep = '../files/books/book5_MEDICINAL_PLANTS_Mongolia.pdf';
+          $fileDirectory = $directory. $bookFiles;
+          $PDFDirectory = $PDFPrep . $files;
+          echo "<br><a href='{$PDFDirectory}'>book5_MEDICINAL_PLANTS_Mongolia.pdf<a><br>";
+        }
         ?>
-          </div>
           <hr>
           <div class="tabs is-toggle is-fullwidth is-large">
-  <ul>
-    <li class="is-active">
-    <a>
-        <span>Normal View</span>
-      </a>
-    </li>
-    <li>
-      <a href="academicviewdraft2.php">
-        <span>Academic View</span>
-      </a>
-</li>
-  </ul>
-</div>
+            <li class="is-active">
+              <a><span>Normal View</span></a>
+            </li>
+            <li>
+              <a href="academicviewdraft2.php"><span>Academic View</span></a>
+            </li>
+          </div>
       </div>
+      </div>
+          
 </body>
 
 </html>

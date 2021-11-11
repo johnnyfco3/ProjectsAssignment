@@ -138,9 +138,9 @@ error_reporting(0);
   <div class="field" style="background-color:lightgreen">
     <form id="searchform" action="normalviewdraft.php" method="get" class="container-fluid" onsubmit="changeImage();">
       <div class="searchbar">
-      <i class="far fa-question-circle fa-3x" style="margin-right:5px;"></i>
+      <i class="far fa-question-circle fa-3x" style="margin-left:10px; margin-right:5px;"></i>
         <input class="input is-rounded is centered" type="text" name="question" placeholder="Enter a question" style="padding-right:10px;">
-        <button type="submit" name="search" class="button is-primary is-outlined is-rounded" onclick="changeImage();">Search</button>
+        <button type="submit" name="search" class="button is-primary is-rounded" onclick="changeImage();">Search</button>
       </div>
     </form>
   </div>
