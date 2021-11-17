@@ -5,6 +5,12 @@
     font-family: fantasy;
   }
 
+  .navbar-menu {
+    font-family: 'Amatic SC', cursive;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+  }
+
   .column .image {
     width: 350px;
   }
@@ -34,6 +40,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Noto+Sans+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
   <title>Plant Details</title>
 </head>
 
@@ -58,7 +69,7 @@
       </a>
 
       <a class="navbar-item" href="qa2.php">
-        Medicinal Plants
+        Ask a Question
       </a>
       <a class="navbar-item" href="http://cs.newpaltz.edu/p/f21-11/v0/home.php">
             Browse our Database

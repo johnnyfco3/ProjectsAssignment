@@ -1,6 +1,6 @@
 <?php
-#require "config.php";
-include "qa2.php";
+require "config.php";
+#include "qa2.php";
 include "removeCommonWords.php";
 error_reporting(0);
 ?>
@@ -31,6 +31,40 @@ error_reporting(0);
   .media-content p {
     text-align: center;
   }
+
+  .searchbar input {
+    width: 80%;
+  }
+
+  .searchbar button {
+    margin-left: 15px;
+  }
+
+  .title {
+    font-family: 'Cinzel', serif;
+  }
+
+  .p {
+    border-style: double;
+  }
+
+  .hero {
+    border-width: 10px;
+    border-style: double;
+  }
+
+  .field {
+    
+    border-width: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .subtitle {
+    font-family: 'Cinzel', serif;
+    font-family: 'Noto Sans Mono', monospace;
+
+  }
 </style>
 <html lang="en">
 
@@ -40,21 +74,90 @@ error_reporting(0);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Noto+Sans+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/c7451615db.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 
 <body>
+  <!--Navbar-->
+  <div class="nav">
+    <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="home.php">Knowledge Base</a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active' : navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="navbar-menu" :class="{ 'is-active' : navBarIsActive }">
+        <div class="navbar-start">
+          <a class="navbar-item" href="home.php">
+            Home
+          </a>
+
+          <a class="navbar-item" href="qa2.php">
+            Ask a Question
+          </a>
+          <a class="navbar-item" href="http://cs.newpaltz.edu/p/f21-11/v0/home.php">
+            Browse our Database
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary" href="login.html">
+                Log in
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <section class="hero" style="text-align:center; background-color:white">
+    <div class="hero-body">
+      <p class="title">
+        Ask Mr. Wise your Question about Plants
+        <i class="fas fa-seedling fa-1x"></i>
+      </p>
+
+      <p class="subtitle">
+        <img id="gif" src="../files/animations/prethinking.gif" width="100" height="100">
+      </p>
+
+    </div>
+  </section>
+
+  <div class="bodyfont" style="background-color: lightgreen; padding-left: 50px;padding-right: 50px; padding-top: 15px;">
+
+  <div class="field">
+    <form id="searchform" action="" method="get" class="container-fluid" onsubmit="changeImage();">
+      <div class="searchbar">
+      <i class="far fa-question-circle fa-2x" style="margin-left:10px; margin-right:5px;"></i>
+        
   <!--Main content-->
-  <div class="bodyfont" style="background-color: lightgreen";>
-  
-
-<div style="padding-left: 50px;padding-right: 50px">
-
 
         <?php
         if (isset($_GET['search'])) {
           //writing the question to a file.txt
           $myfile = fopen("../files/a-db/question.txt", "w");
           $questiontxt = $_GET['question'];
+          fwrite($myfile, $questiontxt);
+          ?>
+          <input class="input is-rounded is centered" type="text" name="question" placeholder="<?php echo file_get_contents('../files/a-db/question.txt') ?>"style="padding-right:10px;">
+        <button type="submit" name="search" class="button is-primary is-rounded" onclick="changeImage();">Search</button>
+      </div>
+    </form>
+  </div><?php
           $outfile = fopen("../files/a-db/keyword.txt", "w");
           $outfile2 = fopen("../files/a-db/keyword2.txt", "w");
           $outfile3 = fopen("../files/a-db/keyword3.txt", "w");
@@ -79,8 +182,6 @@ error_reporting(0);
             $value = str_replace(";", "", $value);
           }
          
-          //print_r($stringArray); //prints the array for testing purposes
-          fwrite($myfile, $questiontxt); //writes the questiontxt into a file
           fclose($outfile);
           fclose($outfile2);
           fclose($outfile3);
@@ -93,9 +194,6 @@ error_reporting(0);
 
           while (!feof($file_handle)) {
             $line_of_text = fgets($file_handle);
-            //$parts = explode(', ', $line_of_text);
-            //print_r($parts);
-            ?> <!--<hr>--> <?php
             ?>
 
             <div style="font-weight: bold" >Here are the plants associated with  <?php echo file_get_contents("../files/a-db/keyword.txt"); ?>
@@ -114,7 +212,6 @@ error_reporting(0);
                   if ($queryResults = mysqli_num_rows($result)) {
                     $medplant = True;
 
-                    //echo $value;
                     while ($row = mysqli_fetch_array($result)) {
                       
                       echo "<a href='dbanswer.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
@@ -150,11 +247,9 @@ error_reporting(0);
                           echo "<a href='dbanswer3.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
                     } 
                 }
-                $sql3 = "SELECT * FROM book5_MEDICINAL_PLANTS_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Qualitative_and_quantitative_standards REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Qualitative_and_quantitative_assays REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' OR Microscopic_characteristics REGEXP '[[:<:]]${value}[[:>:]]' 
+                $sql3 = "SELECT * FROM book5_Medicinal_Plants_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' 
                   OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR Synonym REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Tibetan_Name REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Mongolian_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
 
                   $result3 = mysqli_query($link, $sql3);
             
@@ -173,13 +268,10 @@ error_reporting(0);
           $stringArray2 = array_filter($stringArray2, function($a) {  //function deletes all empty indices left over after removing commonWords
             return trim($a) !== "";
         });
-        //print_r($stringArray2); //prints the array for testing purposes
 
           while (!feof($file_handle2)) {          
             $line_of_text = fgets($file_handle2);
-            //$parts = explode(', ', $line_of_text);
-            //print_r($parts);
-            ?> <!--<hr>--> <?php           
+                 
             foreach ($stringArray2 as &$value) {             
               $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_Composition REGEXP '[[:<:]]${value}[[:>:]]'
           OR Parts_Used REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Flowering_Period REGEXP '[[:<:]]${value}[[:>:]]' 
@@ -224,25 +316,22 @@ error_reporting(0);
         
                       echo "<a href='dbanswer3.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
                 } 
-            }
-            $sql3 = "SELECT * FROM book5_MEDICINAL_PLANTS_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Qualitative_and_quantitative_standards REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Qualitative_and_quantitative_assays REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' OR Microscopic_characteristics REGEXP '[[:<:]]${value}[[:>:]]' 
+            }  
+            $sql3 = "SELECT * FROM book5_Medicinal_Plants_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' 
                   OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR Synonym REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Tibetan_Name REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Mongolian_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
 
                   $result3 = mysqli_query($link, $sql3);
             
                   if ($queryResults = mysqli_num_rows($result3)) {
-                    echo 'yooo';
+                    echo 'yurrr';
                     $book5 = True;
                      while ($row = mysqli_fetch_array($result3)) {
             
                           echo "<a href='dbanswer5.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['English_Name'] . "</a>,";
                     } 
-                }
-                  
-            }
+                }   
+              }
           }
           fclose($file_handle2);
           $file_handle3 = fopen("../files/a-db/keyword3.txt", "rb");
@@ -250,13 +339,11 @@ error_reporting(0);
           $stringArray3 = array_filter($stringArray3, function($a) {  //function deletes all empty indices left over after removing commonWords
             return trim($a) !== "";
         });
-        //print_r($stringArray3); //prints the array for testing purposes
+        
 
           while (!feof($file_handle3)) {          
             $line_of_text = fgets($file_handle3);
-            //$parts = explode(', ', $line_of_text);
-            //print_r($parts);
-            ?> <!--<hr>--> <?php           
+                       
             foreach ($stringArray3 as &$value) {             
               $sql = "SELECT * FROM Medplant WHERE Therapeutic_Uses REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_Composition REGEXP '[[:<:]]${value}[[:>:]]'
           OR Parts_Used REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]' OR Flowering_Period REGEXP '[[:<:]]${value}[[:>:]]' 
@@ -302,15 +389,14 @@ error_reporting(0);
                           echo "<a href='dbanswer3.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
                     } 
                 }
-                $sql3 = "SELECT * FROM book5_MEDICINAL_PLANTS_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Qualitative_and_quantitative_standards REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Qualitative_and_quantitative_assays REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' OR Microscopic_characteristics REGEXP '[[:<:]]${value}[[:>:]]' 
+                $sql3 = "SELECT * FROM book5_Medicinal_Plants_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' 
                   OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR Synonym REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Tibetan_Name REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Mongolian_Name REGEXP '[[:<:]]${value}[[:>:]]'";
+                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
 
                   $result3 = mysqli_query($link, $sql3);
             
                   if ($queryResults = mysqli_num_rows($result3)) {
+                    echo 'yurrr';
                     $book5 = True;
                      while ($row = mysqli_fetch_array($result3)) {
             
@@ -338,7 +424,6 @@ error_reporting(0);
             $line_of_text = fgets($file_handle);
             foreach ($stringArray as &$value) {
 
-                      //echo "<br>";
                       echo shell_exec("python ../cgi-bin/v1-web/extractkey2.py ${value}");           
                   }
             }
@@ -385,7 +470,9 @@ error_reporting(0);
           <?php
           }
         }
-
+?>
+          <div class="pdf">
+          <?php
         if($medplant == True){
           $bookFiles = array_diff(scandir($directory), array('..', '.'));  
           $PDFPrep = '../files/books/Medplant.pdf';
@@ -415,17 +502,10 @@ error_reporting(0);
           echo "<br><a href='{$PDFDirectory}'>book5_MEDICINAL_PLANTS_Mongolia.pdf<a><br>";
         }
         ?>
-          <hr>
-          <div class="tabs is-toggle is-fullwidth is-large">
-            <li class="is-active">
-              <a><span>Normal View</span></a>
-            </li>
-            <li>
-              <a href="academicviewdraft2.php"><span>Academic View</span></a>
-            </li>
-          </div>
+        </div>
+          
       </div>
-      </div>
+      something
           
 </body>
 

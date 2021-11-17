@@ -22,8 +22,6 @@
 
   .hero {
     text-align: center;
-
-
     font-family: 'Shadows Into Light', cursive;
     font-size: 35px;
     border-style: inset;

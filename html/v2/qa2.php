@@ -135,7 +135,7 @@ error_reporting(0);
   </section>
   <br>
 
-  <div class="field" style="background-color:lightgreen">
+  <div class="field" style="background-color:lightgreen; padding-left: 50px; padding-right: 50px; padding-top: 15px;">
     <form id="searchform" action="normalviewdraft.php" method="get" class="container-fluid" onsubmit="changeImage();">
       <div class="searchbar">
       <i class="far fa-question-circle fa-3x" style="margin-left:10px; margin-right:5px;"></i>

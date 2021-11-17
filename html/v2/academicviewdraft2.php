@@ -1,8 +1,8 @@
 <?php
-#require "config.php";
-include "qa2.php";
+require "config.php";
+#include "qa2.php";
 include "removeCommonWords.php";
-include "../cgi-bin/v1-web/extractkey.py ";
+#include "../cgi-bin/v1-web/extractkey.py ";
 error_reporting(0);
 ?>
 <!DOCTYPE html>
@@ -27,13 +27,45 @@ error_reporting(0);
   .media-content p {
     text-align: center;
   }
+  
   .columns{
     font-family: 'Merriweather', serif;
     font-size: 25px;
    
   }
-  a{
+  
+  .searchbar input {
+    width: 80%;
+  }
+
+  .searchbar button {
+    margin-left: 15px;
+  }
+
+  .title {
+    font-family: 'Cinzel', serif;
+  }
+
+  .p {
+    border-style: double;
+  }
+
+  .hero {
+    border-width: 10px;
+    border-style: double;
+  }
+
+  .field {
     
+    border-width: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .subtitle {
+    font-family: 'Cinzel', serif;
+    font-family: 'Noto Sans Mono', monospace;
+
   }
 </style>
 <html lang="en">
@@ -48,6 +80,70 @@ error_reporting(0);
 </head>
 
 <body>
+  <!--Navbar-->
+  <div class="nav">
+    <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="home.php">Knowledge Base</a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active' : navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="navbar-menu" :class="{ 'is-active' : navBarIsActive }">
+        <div class="navbar-start">
+          <a class="navbar-item" href="home.php">
+            Home
+          </a>
+
+          <a class="navbar-item" href="qa2.php">
+            Ask a Question
+          </a>
+          <a class="navbar-item" href="http://cs.newpaltz.edu/p/f21-11/v0/home.php">
+            Browse our Database
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary" href="login.html">
+                Log in
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <section class="hero" style="text-align:center; background-color:white">
+    <div class="hero-body">
+      <p class="title">
+        Ask Mr. Wise your Question about Plants
+        <i class="fas fa-seedling fa-1x"></i>
+      </p>
+
+      <p class="subtitle">
+        <img id="gif" src="../files/animations/prethinking.gif" width="100" height="100">
+      </p>
+
+    </div>
+  </section>
+
+  <div class="bodyfont" style="background-color: lightgreen; padding-left: 50px;padding-right: 50px; padding-top: 15px;">
+
+  <div class="field">
+    <form id="searchform" action="" method="get" class="container-fluid" onsubmit="changeImage();">
+      <div class="searchbar">
+      <i class="far fa-question-circle fa-2x" style="margin-left:10px; margin-right:5px;"></i>
+      <input class="input is-rounded is centered" type="text" name="question" placeholder="<?php echo file_get_contents('../files/a-db/question.txt') ?>"style="padding-right:10px;">
+        <button type="submit" name="search" class="button is-primary is-rounded" onclick="changeImage();">Search</button>
+      </div>
+    </form>
+  </div>
   <!--Main content-->
   
 
