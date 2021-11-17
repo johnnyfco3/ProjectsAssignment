@@ -9,7 +9,7 @@ include_once ('config.php');
 
     if($result)
     {
-      header("location:viewfiles.php");
+      header("location:viewfiles.php?success");
     }
     else
     {
@@ -18,7 +18,7 @@ include_once ('config.php');
   }
   else
   {
-    header("location:viewfiles.php");
+    header("location:viewfiles.php?nochange");
   }
 
  ?>

@@ -98,7 +98,7 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary" href="login.html">
+              <a class="button is-warning" href="login.html">
                 Log in
               </a>
             </div>

@@ -114,7 +114,7 @@ error_reporting(0);
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary" href="login.html">
+              <a class="button is-warning" href="login.html">
                 Log in
               </a>
             </div>
@@ -229,7 +229,7 @@ error_reporting(0);
                     $book2 = True;
                      while ($row = mysqli_fetch_array($result1)) {
             
-                          echo "<a href='dbanswer2.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                          echo "<a href='dbanswer2.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['English_Name'] . "</a>,";
                     } 
                 }
     
@@ -299,7 +299,7 @@ error_reporting(0);
                 $book2 = True;
                  while ($row = mysqli_fetch_array($result1)) {
         
-                      echo "<a href='dbanswer2.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                      echo "<a href='dbanswer2.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['English_Name'] . "</a>,";
                 } 
             }
 
@@ -371,7 +371,7 @@ error_reporting(0);
                     $book2 = True;
                      while ($row = mysqli_fetch_array($result1)) {
             
-                          echo "<a href='dbanswer2.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['Plant_Name'] . "</a>,";
+                          echo "<a href='dbanswer2.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['English_Name'] . "</a>,";
                     } 
                 }
     
