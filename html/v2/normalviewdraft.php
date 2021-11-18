@@ -247,19 +247,6 @@ error_reporting(0);
                           echo "<a href='dbanswer3.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['English_Name'] . "</a>,";
                     } 
                 }
-                $sql3 = "SELECT * FROM book5_Medicinal_Plants_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' 
-                  OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
-
-                  $result3 = mysqli_query($link, $sql3);
-            
-                  if ($queryResults = mysqli_num_rows($result3)) {
-                    $book5 = True;
-                     while ($row = mysqli_fetch_array($result3)) {
-            
-                          echo "<a href='dbanswer5.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['English_Name'] . "</a>,";
-                    } 
-                }
             }
           }
           fclose($file_handle);
@@ -316,21 +303,7 @@ error_reporting(0);
         
                       echo "<a href='dbanswer3.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['English_Name'] . "</a>,";
                 } 
-            }  
-            $sql3 = "SELECT * FROM book5_Medicinal_Plants_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' 
-                  OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
-
-                  $result3 = mysqli_query($link, $sql3);
-            
-                  if ($queryResults = mysqli_num_rows($result3)) {
-                    echo 'yurrr';
-                    $book5 = True;
-                     while ($row = mysqli_fetch_array($result3)) {
-            
-                          echo "<a href='dbanswer5.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['English_Name'] . "</a>,";
-                    } 
-                }   
+            }    
               }
           }
           fclose($file_handle2);
@@ -387,20 +360,6 @@ error_reporting(0);
                      while ($row = mysqli_fetch_array($result2)) {
             
                           echo "<a href='dbanswer3.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['English_Name'] . "</a>,";
-                    } 
-                }
-                $sql3 = "SELECT * FROM book5_Medicinal_Plants_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' 
-                  OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Plant_Name REGEXP '[[:<:]]${value}[[:>:]]'";
-
-                  $result3 = mysqli_query($link, $sql3);
-            
-                  if ($queryResults = mysqli_num_rows($result3)) {
-                    echo 'yurrr';
-                    $book5 = True;
-                     while ($row = mysqli_fetch_array($result3)) {
-            
-                          echo "<a href='dbanswer5.php?ID=" . $row['ID'] . "' style='text-decoration: underline;'>" . $row['English_Name'] . "</a>,";
                     } 
                 }
                   
@@ -494,12 +453,12 @@ error_reporting(0);
           $PDFDirectory = $PDFPrep . $files;
           echo "<br><a href='{$PDFDirectory}'>book3_Medicinal_plants_in_China.pdf</a><br>";
         }
-        if($book5 == True){
+        if(file_get_contents('../files/a-db/textbook.txt') == 'True'){
           $bookFiles = array_diff(scandir($directory), array('..', '.'));  
-          $PDFPrep = '../files/books/book5_MEDICINAL_PLANTS_Mongolia.pdf';
+          $PDFPrep = '../files/books/Medicinal-Plants-of-North-America.pdf';
           $fileDirectory = $directory. $bookFiles;
           $PDFDirectory = $PDFPrep . $files;
-          echo "<br><a href='{$PDFDirectory}'>book5_MEDICINAL_PLANTS_Mongolia.pdf</a><br>";
+          echo "<br><a href='{$PDFDirectory}'>Medicinal-Plants-of-North-America.pdf</a><br>";
         }
         ?>
         </div>

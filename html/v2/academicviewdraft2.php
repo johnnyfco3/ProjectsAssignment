@@ -237,25 +237,6 @@ error_reporting(0);
 
               <?php } 
               }
-              $sql3 = "SELECT * FROM book5_MEDICINAL_PLANTS_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Qualitative_and_quantitative_standards REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Qualitative_and_quantitative_assays REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' OR Microscopic_characteristics REGEXP '[[:<:]]${value}[[:>:]]' 
-                  OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR Synonym REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Tibetan_Name REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Mongolian_Name REGEXP '[[:<:]]${value}[[:>:]]'";
-
-              $result3 = mysqli_query($link, $sql3);
-        
-              if ($queryResults = mysqli_num_rows($result3)) {
-              while ($row = mysqli_fetch_array($result3)) {
-              ?>
-                <li>
-                    <?php echo "<a style='color:black;' href='dbanswer5.php?ID=" . $row['ID'] . "'>" . $row['English_Name'] . "</a>";
-                    ?>
-                </li>
-                <br>
-
-                <?php } 
-              }
             }
           
           fclose($file_handle);
@@ -326,25 +307,6 @@ error_reporting(0);
 
               <?php }
               }
-              $sql3 = "SELECT * FROM book5_MEDICINAL_PLANTS_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Qualitative_and_quantitative_standards REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Qualitative_and_quantitative_assays REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' OR Microscopic_characteristics REGEXP '[[:<:]]${value}[[:>:]]' 
-                  OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR Synonym REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Tibetan_Name REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Mongolian_Name REGEXP '[[:<:]]${value}[[:>:]]'";
-
-              $result3 = mysqli_query($link, $sql3);
-        
-              if ($queryResults = mysqli_num_rows($result3)) {
-              while ($row = mysqli_fetch_array($result3)) {
-              ?>
-                <li>
-                    <?php echo "<a style='color:black;' href='dbanswer5.php?ID=" . $row['ID'] . "'>" . $row['English_Name'] . "</a>";
-                    ?>
-                </li>
-                <br>
-
-                <?php } 
-              }   
             }
           
           fclose($file_handle2);
@@ -415,25 +377,6 @@ error_reporting(0);
                   <br>
 
               <?php }
-              }
-              $sql3 = "SELECT * FROM book5_MEDICINAL_PLANTS_Mongolia WHERE Bioactivites REGEXP '[[:<:]]${value}[[:>:]]' OR Qualitative_and_quantitative_standards REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Qualitative_and_quantitative_assays REGEXP '[[:<:]]${value}[[:>:]]' OR Chemical_constituents REGEXP '[[:<:]]${value}[[:>:]]' OR Microscopic_characteristics REGEXP '[[:<:]]${value}[[:>:]]' 
-                  OR Traditional_uses REGEXP '[[:<:]]${value}[[:>:]]' OR Parts_used REGEXP '[[:<:]]${value}[[:>:]]' OR Habitat REGEXP '[[:<:]]${value}[[:>:]]' OR Distribution REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Description REGEXP '[[:<:]]${value}[[:>:]]' OR Synonym REGEXP '[[:<:]]${value}[[:>:]]' OR English_Name REGEXP '[[:<:]]${value}[[:>:]]' OR Tibetan_Name REGEXP '[[:<:]]${value}[[:>:]]'
-                  OR Mongolian_Name REGEXP '[[:<:]]${value}[[:>:]]'";
-
-              $result3 = mysqli_query($link, $sql3);
-        
-              if ($queryResults = mysqli_num_rows($result3)) {
-              while ($row = mysqli_fetch_array($result3)) {
-              ?>
-                <li>
-                    <?php echo "<a style='color:black;' href='dbanswer5.php?ID=" . $row['ID'] . "'>" . $row['English_Name'] . "</a>";
-                    ?>
-                </li>
-                <br>
-
-                <?php } 
               }
             }
           

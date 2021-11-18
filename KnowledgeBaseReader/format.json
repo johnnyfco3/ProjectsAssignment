@@ -1,5 +1,5 @@
 {
-  "startPage": 28,
+  "startPage": 14,
   "lastPage": 426,
   "columns": {
     "Therapeutic_Uses": [
@@ -35,7 +35,7 @@
     "Plant_Number": ["(\\d+)", "search"]
   },
   "pictures": {
-    "startPage": 27,
+    "startPage": 13,
     "lastPage": 427
   }
 }

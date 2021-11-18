@@ -1,58 +1,86 @@
-from PyPDF2 import PdfFileReader, PdfFileWriter
-import slate3k as slate
+
+"""
+pip install PyPDF2
+    -reads pdfs
+pip install python-dotenv
+    -provides envirmonment vars so nothing is out in the open 
+pip install mysql-connector-python
+    -connects to the mysqlserver
+pip install pdf2jpg
+    -changes pdf to jpg
+
+To run:
+    python PDFextract.py textbook.pdf format.json
+"""
+import PyPDF2
+import mysql.connector
 import re
 import os
+
 from dataSplitter import extractData  
+from pdf2jpg import pdf2jpg
 import json
 import sys
-from pdf2jpg import pdf2jpg
-from mysql.connector import (connection)
+import argparse
 
-cnx = connection.MySQLConnection(user='root',
-                                 host='localhost',
-                                 database='name_db')
+#get envir vars
+
+
+#load command line args
+parser = argparse.ArgumentParser()
+parser.add_argument("pdf",help="the pdf to be used")
+parser.add_argument("json",help="JSON file used to input format of the pdf")
+parser.add_argument("-d","--debug",
+                    help="turns on mode where allows to update json when columns are null",
+                    action="store_true")
+args = parser.parse_args()
+
+#create db cursor
+cnx = mysql.connector.connect(
+    user='root',
+    host='localhost',
+    password='',
+    database='name_db'
+    #below is the cs shared DB info. Will be used when software is ready
+    #USERNAME 'p_f21_11')
+    #PASSWORD 'vqesp5')
+    #DB_NAME 'p_f21_11_db')
+    
+)
 
 cur = cnx.cursor()
 
 # load in json file to get textbook format
-with open('KnowledgeBaseReader/format2.json') as json_file: 
+with open(args.json) as json_file: 
     pdf_format = json.load(json_file)
     json_file.close()
 
+pdfFileObj = open('../html/files/books/%s'%(args.pdf), 'rb')
+pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
+
 # create db table from info given in 
-table_name = "book2"
+table_name = args.pdf.strip(".pdf").replace(" ","_")
 ddl = ""
 for col in pdf_format['columns']:
     ddl += "`{}` text,".format(col)
 
-create_table = ("CREATE TABLE IF NOT EXISTS `{}` ( `ID` INT NOT NULL AUTO_INCREMENT, `Image_Link` TEXT, {} PRIMARY KEY (`ID`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;".format(table_name, ddl))
+create_table = ("CREATE TABLE IF NOT EXISTS Textbooks ( `ID` INT NOT NULL AUTO_INCREMENT, `Image_Link` TEXT, {} PRIMARY KEY (`ID`), `PDF` TEXT) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;".format(ddl))
 cur.execute(create_table)
 cnx.commit()
 
-# open the PDF file
-pdfFile = open('html/files/books/book2-Medicinal Plants of Korea.pdf', 'rb')
-
-# create PDFFileReader object to read the file
-pdfReader = PdfFileReader(pdfFile)
-
-
-
-print("PDF File name: " + str(pdfReader.getDocumentInfo().title))
-print("PDF File created by: " + str(pdfReader.getDocumentInfo().creator))
-print("- - - - - - - - - - - - - - - - - - - -")
-
-numOfPages = pdfReader.getNumPages()
+#  check for debug flag
 debug = False
+#Extract all text from PDF and put in text document
 i = pdf_format['startPage']
 img_page_diff = pdf_format['pictures']['startPage'] - pdf_format['startPage']
-with open ('html/files/a-db/book-2.txt', mode = "w", encoding = "utf-8") as output_file:
+with open ('text_check.txt', mode = "w", encoding = "utf-8") as output_file:
     while i < pdf_format['lastPage'] :
         pageObj = pdfReader.getPage(i)
         text = pageObj.extractText()
         output_file.write(text)
         output_file.write("\n")
         dataDict = extractData(text, pdf_format['columns'])
-	
+        
         if debug:
             
             """ check for any None value in data Dict
@@ -82,15 +110,14 @@ with open ('html/files/a-db/book-2.txt', mode = "w", encoding = "utf-8") as outp
                 json_file.close()
                 dataDict = extractData(text, pdf_format['columns'])
 
-
- 
+        # creating image link string for the table
         img_num = i+img_page_diff
-        image_link = 'html/files/PlantPicsPDF/%s/Plant%s.pdf'%(table_name,img_num)
+        image_link = '/files/PlantPicsPDF/%s/Plant%s.pdf'%(table_name,img_num)
         
         # Insert statement that is general and should work for all plant textbooks
         placeholders = ', '.join(['%s'] * len(dataDict))
-        columns = '`, `'.join(dataDict.keys()) + '`, `Image_link'
-        query = "INSERT INTO `%s`( `%s` ) VALUES ( %s , '%s')"%(table_name, columns, placeholders, image_link)
+        columns = '`, `'.join(dataDict.keys()) + '`, `Image_link`, `PDF'
+        query = "INSERT INTO Textbooks( `%s` ) VALUES ( %s , '%s', '%s')"%(columns, placeholders, image_link, table_name)
         
         # Create cursor to insert dictionary into the database
         
@@ -101,18 +128,20 @@ with open ('html/files/a-db/book-2.txt', mode = "w", encoding = "utf-8") as outp
 
 #create directory for the images
 
+path = os.path.join(os.path.dirname(os.getcwd()),"html/files/PlantPicsPDF/%s"% table_name)
+
 try:
-    os.mkdir(os.path.join(os.path.dirname(os.getcwd()),"html/files/PlantPicsPDF/%s"% table_name))
+    os.mkdir(path)
 except OSError:
-    print ("Creation of the directory failed" )
+    print ("Creation of the directory %s failed" % path)
 else:
-    print ("Successfully created the directory " )
+    print ("Successfully created the directory %s " % path)
     
 
 i = pdf_format['pictures']['startPage']
 l = 1
 while i < pdf_format['pictures']['lastPage']:  
-    pdf_writer = PdfFileWriter()
+    pdf_writer = PyPDF2.PdfFileWriter()
     pdf_writer.addPage(pdfReader.getPage(i))
     with open (os.path.join(os.path.dirname(os.getcwd()),'html/files/PlantPicsPDF/%s/Plant%s.pdf') % (table_name, i), mode = "ab") as pdfsplit:
         pdf_writer.write(pdfsplit)

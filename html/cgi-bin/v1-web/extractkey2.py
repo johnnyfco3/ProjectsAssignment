@@ -104,18 +104,18 @@ with open("../files/a-web/tid9input.txt", "r") as input9:
     if source9 == True:
         sourcefile.write('\n https://www.frontiersin.org/articles/10.3389/fphar.2019.01480/full \n')
 
-"""with open("../files/a-db/Medicinal-Plant_America.txt", "r" as input10:
+with open("../files/a-db/Medicinal-Plant-America.txt", "r") as input10:
     source10 = False
-    input10_ = input10.read().split(".")
+    input10_ = input10.read().split(". ")
     for i10 in input10_:
         outcome10 = i10.split()
         if word in outcome10:
             source10 = True
             testfile.write(' ' + i10 + ' \n')
     if source10 == True:
-        testfile.write('\n -- PDF: Medicinal Plants of North America -- \n')
-        sourcefile.write('\n Medicinal Plants of North America \n')
-"""        
+        textbook = open("../files/a-db/textbook.txt", "w")
+        textbook.write("True")
+        
 
 testfile.close()
 f = open("../files/a-web/webanswer.txt", "r")
