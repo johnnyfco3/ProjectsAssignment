@@ -15,6 +15,7 @@ include_once ('config.php');
     {
       echo ' Please Check Your Query ';
     }
+    unlink("../files/books/$file");
   }
   else
   {
