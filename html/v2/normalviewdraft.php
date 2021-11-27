@@ -382,8 +382,10 @@ error_reporting(0);
           while (!feof($file_handle)) {
             $line_of_text = fgets($file_handle);
             foreach ($stringArray as &$value) {
-
-                      echo shell_exec("python ../cgi-bin/v1-web/extractkey2.py ${value}");           
+                  echo "<br>";
+                  echo "<blockquote>";
+                  echo shell_exec("python ../cgi-bin/v1-web/extractkey2.py ${value}");   
+                  echo "</blockquote>";               
                   }
             }
           fclose($file_handle);
@@ -393,7 +395,9 @@ error_reporting(0);
             $line_of_text = fgets($file_handle2);         
             foreach ($stringArray2 as &$value) {
                       echo "<br>";
-                      echo shell_exec("python ../cgi-bin/v1-web/extractkey2.py ${value}");           
+                      echo "<blockquote>";
+                      echo shell_exec("python ../cgi-bin/v1-web/extractkey2.py ${value}");   
+                      echo "</blockquote>";        
                   }
                   
             }
@@ -404,8 +408,10 @@ error_reporting(0);
             $line_of_text = fgets($file_handle3);
                   
             foreach ($stringArray3 as &$value) { 
-                      echo "<br>";
-                      echo shell_exec("python ../cgi-bin/v1-web/extractkey2.py ${value}");   
+                  echo "<br>";
+                  echo "<blockquote>";
+                  echo shell_exec("python ../cgi-bin/v1-web/extractkey2.py ${value}");   
+                  echo "</blockquote>";      
             }
           }
           fclose($file_handle3);
@@ -424,7 +430,7 @@ error_reporting(0);
           while (($line = fgets($handle)) !== false) 
           {
           
-          ?><a href="<?php echo $line; ?>"><?php echo $line?></a><br>
+          ?><a href="<?php echo $line; ?>"><cite><?php echo $line?></cite></a><br>
 
           <?php
           }
@@ -437,28 +443,28 @@ error_reporting(0);
           $PDFPrep = '../files/books/Medplant.pdf';
           $fileDirectory = $directory. $bookFiles;
           $PDFDirectory = $PDFPrep . $files;
-          echo "<br><a href='{$PDFDirectory}'>book1-Medicinal plants in Viet Nam.pdf</a><br>";
+          echo "<br><cite><a href='{$PDFDirectory}'>book1-Medicinal plants in Viet Nam.pdf</a></cite><br>";
         }
         if($book2 == True){
           $bookFiles = array_diff(scandir($directory), array('..', '.'));  
           $PDFPrep = '../files/books/book2_Medicinal_Plants_of_Korea.pdf';
           $fileDirectory = $directory. $bookFiles;
           $PDFDirectory = $PDFPrep . $files;
-          echo "<br><a href='{$PDFDirectory}'>book2_Medicinal_Plants_of_Korea.pdf</a><br>";
+          echo "<br><cite><a href='{$PDFDirectory}'>book2_Medicinal_Plants_of_Korea.pdf</a></cite><br>";
         }
         if($book3 == True){
           $bookFiles = array_diff(scandir($directory), array('..', '.'));  
           $PDFPrep = '../files/books/book3_Medicinal_plants_in_China.pdf';
           $fileDirectory = $directory. $bookFiles;
           $PDFDirectory = $PDFPrep . $files;
-          echo "<br><a href='{$PDFDirectory}'>book3_Medicinal_plants_in_China.pdf</a><br>";
+          echo "<br><cite><a href='{$PDFDirectory}'>book3_Medicinal_plants_in_China.pdf</a></cite><br>";
         }
         if(file_get_contents('../files/a-db/textbook.txt') == 'True'){
           $bookFiles = array_diff(scandir($directory), array('..', '.'));  
           $PDFPrep = '../files/books/Medicinal-Plants-of-North-America.pdf';
           $fileDirectory = $directory. $bookFiles;
           $PDFDirectory = $PDFPrep . $files;
-          echo "<br><a href='{$PDFDirectory}'>Medicinal-Plants-of-North-America.pdf</a><br>";
+          echo "<br><cite><a href='{$PDFDirectory}'>Medicinal-Plants-of-North-America.pdf</a></cite><br>";
         }
         ?>
         </div>
