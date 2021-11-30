@@ -9,6 +9,7 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: bold;
   }
+  
 </style>
 <html lang="en">
 <head>
@@ -50,39 +51,45 @@
 </div>
 <!--Main Content-->
 <form action="" method="post" enctype="multipart/form-data">
-<div class="columns">
-  <div class="column is-one-third">
-<div class="field">
-  <label class="label">Title</label>
-  <div class="control">
-    <input class="input is-link" type="text" name="title" placeholder="Choose an appropriate title">
-  </div>
-</div>
-</div>
-</div>
+  <div class="column is-half is-offset-one-quarter">
+    <div class="card">
+      <div class="card-content">
+        <div class="content">
+            
+          <div class="field">
+            <label class="label">Title</label>
+            <div class="control">
+                <input class="input is-link" type="text" name="title" placeholder="Choose an appropriate title">
+            </div>
+          </div>
+            
 
-<div class="field">
-  <label class="label">Type</label>
-  <div class="column is-one-fifth">
-    <input class="input" type="text" value="PDF" name="type" readonly>
-  </div>
-</div>
+          <div class="field">
+            <label class="label">Type</label>
+            <div class="column is-one-fifth">
+              <input class="input" type="text" value="PDF" name="type" readonly>
+            </div>
+          </div>
 
-</div> 
-<div class="field">
-  Upload File to Scan
-  <input type="file" name="userfile" id="userfile" required>
-  <input type="hidden" name="MAX_FILE_SIZE" value="30000000000" />
-</div>
+          <div class="field">
+            Upload File to Scan
+            <input type="file" name="userfile" id="userfile" required>
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000000000" />
+          </div>
 
-<div class="field">
-  <div class="control">
-    <button class="button is-link" type="submit" name="submit">Submit</button>
+          <div class="field">
+            <div class="control">
+              <button class="button is-link" type="submit" name="submit">Submit</button>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 </form>
-<?php
 
+<?php
 // Include config file
 require_once "config.php";
 

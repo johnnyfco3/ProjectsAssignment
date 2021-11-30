@@ -50,43 +50,45 @@
 </div>
 <!--Main Content-->
 <form action="" method="post" enctype="multipart/form-data">
-<div class="columns">
-  <div class="column is-one-third">
-<div class="field">
-  <label class="label">Title</label>
-  <div class="control">
-    <input class="input is-link" type="text" name="title" placeholder="Choose an appropriate title">
-  </div>
-</div>
-</div>
-</div>
+<div class="column is-half is-offset-one-quarter">
+    <div class="card">
+      <div class="card-content">
+        <div class="content">
 
-<div class="field">
-  <label class="label">Type</label>
-  <div class="column is-one-fifth">
-    <input class="input" type="text" value="URL" name="type" readonly>
+          <div class="field">
+            <label class="label">Title</label>
+            <div class="control">
+              <input class="input is-link" type="text" name="title" placeholder="Choose an appropriate title">
+            </div>
+          </div>
+        
+          <div class="field">
+            <label class="label">Type</label>
+            <div class="column is-one-fifth">
+              <input class="input" type="text" value="URL" name="type" readonly>
+            </div>
+          </div>
+        
+          <div class="field">
+            <label class="label">URL</label>
+            <div class="control">
+              <input class="input is-link" type="text" name="url" placeholder="Enter URL properly">
+            </div>
+          </div>
+        
+          <div class="field">
+            <div class="control">
+              <button class="button is-link" type="submit" name="submit">Submit</button>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-<div class="columns">
-  <div class="column is-half">
-<div class="field">
-  <label class="label">URL</label>
-  <div class="control">
-    <input class="input is-link" type="text" name="url" placeholder="Enter URL properly">
-  </div>
-</div>
-</div>
-</div>
-
-<div class="field">
-  <div class="control">
-    <button class="button is-link" type="submit" name="submit">Submit</button>
-  </div>
-</div>
 </form>
-<?php
 
+<?php
 // Include config file
 require_once "config.php";
 

@@ -16,10 +16,6 @@
 
   }
 
-  .section{
-    
-    }
-
   .hero {
     text-align: center;
     font-family: 'Shadows Into Light', cursive;
@@ -38,6 +34,8 @@
     border-width: 5px;
     color: white;
     font-weight: 600;
+    width: 1315px;
+    height: 300px;
   }
 
   .banner {
@@ -136,12 +134,14 @@
 
 
           <div class="databasebio">
+            <blockquote>
             Medicinal plants, also called medicinal herbs, have been discovered and used in
             traditional medicine practices since prehistoric times. Plants make hundreds
             of chemical compounds for functions including defence against insects, fungi, diseases,
             and herbivorous mammals. This website includes a numerous amount of sources that inform you about
             different types of medicinal plants and their importance. To learn about specific plants, press the
-            Start button below! To quiz yourself on the information, press the Quiz button below!
+            Start button below!
+            </blockquote>
 
           </div>
           <a class='button is-info' role='button' href="qa2.php" style="height:60px;width:60px; font-family: 'Roboto Condensed';font-weight:bold;">Start</a>
